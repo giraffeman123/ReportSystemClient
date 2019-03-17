@@ -9,7 +9,7 @@ assignees: ''
 
 **Describe el error**
 Una descripción clara y concisa de que es el error.
-
+,
 **Para Reproducirse**
 Pasos para reproducir el comportamiento del error(ejemplo):
 1. Ir a '...'
