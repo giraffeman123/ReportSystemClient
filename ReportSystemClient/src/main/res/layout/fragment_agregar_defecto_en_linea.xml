@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ui.defecto_en_linea.AgregarDefectoEnLinea"
+    android:background="@color/blanco">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btEliminarCodigo"
+            android:layout_width="156dp"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/btAgregarCodigo"
+            android:layout_marginBottom="102dp"
+            android:background="@android:drawable/ic_menu_delete"
+            android:text="Eliminar Codigo de Defecto"
+            tools:layout_editor_absoluteX="487dp"
+            tools:layout_editor_absoluteY="144dp" />
+
+        <Button
+            android:id="@+id/btAgregarCodigo"
+            android:layout_width="156dp"
+            android:layout_height="64dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="267dp"
+            android:layout_marginTop="155dp"
+            android:background="@android:drawable/ic_menu_add"
+            android:text="Agregar Codigo de Defecto"
+            tools:layout_editor_absoluteX="257dp"
+            tools:layout_editor_absoluteY="148dp" />
+
+        <Button
+            android:id="@+id/btConsultarCodigo"
+            android:layout_width="156dp"
+            android:layout_height="64dp"
+            android:layout_alignStart="@+id/btModificarCodigo"
+            android:layout_alignTop="@+id/btEliminarCodigo"
+            android:background="@android:drawable/ic_menu_search"
+            android:text="Consultar Codigo de Defecto"
+            tools:layout_editor_absoluteX="257dp"
+            tools:layout_editor_absoluteY="244dp" />
+
+        <Button
+            android:id="@+id/btModificarCodigo"
+            android:layout_width="156dp"
+            android:layout_height="64dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/btAgregarCodigo"
+            android:layout_marginEnd="271dp"
+            android:background="@android:drawable/ic_menu_edit"
+            android:text="Modificar Codigo de Defecto"
+            tools:layout_editor_absoluteX="487dp"
+            tools:layout_editor_absoluteY="248dp" />
+
+        <ImageView
+            android:id="@+id/imgLogoFurukawa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:srcCompat="@drawable/furukawalogo"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+    </RelativeLayout>
+</FrameLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ui.lider.ModificarLider"
+    android:background="@color/blanco">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/edtxrIngresarCodigo"
+            android:layout_width="575dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="167dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btCancelar"
+            android:layout_width="156dp"
+            android:layout_height="64dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/btAceptar"
+            android:layout_marginEnd="212dp"
+            android:text="Cancelar" />
+
+        <Button
+            android:id="@+id/btAceptar"
+            android:layout_width="156dp"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/edtxrIngresarCodigo"
+            android:layout_marginBottom="51dp"
+            android:text="Aceptar" />
+
+        <TextView
+            android:id="@+id/txtViewIngresarCodigo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:text="Ingrese el código del empleado a modificar:"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/imgLogoFurukawa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/furukawalogo" />
+    </RelativeLayout>
+</FrameLayout>

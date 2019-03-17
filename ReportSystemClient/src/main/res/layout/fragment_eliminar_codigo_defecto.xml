@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ui.codigo_defecto.EliminarCodigoDefecto"
+    android:background="@color/blanco">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/edtxtIngreseCodigo"
+            android:layout_width="519dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="182dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="268dp"
+            tools:layout_editor_absoluteY="243dp" />
+
+        <Button
+            android:id="@+id/btAceptar"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="156dp"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="54dp"
+            android:layout_marginStart="228dp"
+            android:text="Aceptar"
+            android:textSize="14sp"
+            tools:layout_editor_absoluteX="268dp"
+            tools:layout_editor_absoluteY="311dp" />
+
+        <Button
+            android:id="@+id/btCancelar"
+            android:layout_width="156dp"
+            android:layout_height="64dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/btAceptar"
+            android:layout_marginEnd="184dp"
+            android:text="Cancelar"
+            tools:layout_editor_absoluteX="472dp"
+            tools:layout_editor_absoluteY="311dp" />
+
+        <TextView
+            android:id="@+id/txtViewIngreseCodigo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="150dp"
+            android:text="Ingrese el código de defecto a eliminar:"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="256dp"
+            tools:layout_editor_absoluteY="197dp" />
+
+        <ImageView
+            android:id="@+id/imgLogoFurukawa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/furukawalogo" />
+
+
+    </RelativeLayout>
+
+
+</FrameLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.lider.ConsultarLider"
+    android:background="@color/blanco">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txtViewConsultarLider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:text="Ingrese el nombre de Líder a consultar:"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/imgLogoFurukawa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/furukawalogo" />
+
+        <EditText
+            android:id="@+id/edtxtConsultarLider"
+            android:layout_width="516dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="174dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
+        <Button
+            android:id="@+id/btCancelar"
+            android:layout_width="156dp"
+            android:layout_height="64dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/btAceptar"
+            android:layout_marginEnd="208dp"
+            android:text="Cancelar" />
+
+        <Button
+            android:id="@+id/btAceptar"
+            android:layout_width="156dp"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="53dp"
+            android:layout_marginStart="219dp"
+            android:text="Aceptar" />
+
+    </RelativeLayout>
+
+</FrameLayout>

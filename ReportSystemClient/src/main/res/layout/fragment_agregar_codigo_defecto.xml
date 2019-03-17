@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ui.codigo_defecto.AgregarCodigoDefecto"
+    android:background="@color/blanco">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txtViewArea"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_alignTop="@+id/spArea"
+            android:layout_marginEnd="-208dp"
+            android:layout_toStartOf="@+id/btAceptar"
+            android:text="Área"
+            android:textSize="18dp"
+            tools:paddingLeft="0dp"
+            tools:textColor="@android:color/holo_red_dark" />
+
+        <TextView
+            android:id="@+id/txtViewLinea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/txtViewArea"
+            android:layout_marginTop="143dp"
+            android:text="Línea"
+            android:textSize="18dp"
+            tools:layout_editor_absoluteX="121dp"
+            tools:layout_editor_absoluteY="196dp"
+            tools:textColor="@android:color/holo_red_dark" />
+
+        <TextView
+            android:id="@+id/txtViewEstacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/txtViewArea"
+            android:layout_marginTop="185dp"
+            android:text="Estación"
+            android:textSize="18dp"
+            tools:layout_editor_absoluteX="121dp"
+            tools:layout_editor_absoluteY="239dp"
+            tools:textColor="@android:color/holo_red_dark" />
+
+        <TextView
+            android:id="@+id/txtViewGravedad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/txtViewArea"
+            android:layout_marginBottom="206dp"
+            android:text="Gravedad"
+            android:textSize="18dp"
+            tools:layout_editor_absoluteX="121dp"
+            tools:layout_editor_absoluteY="290dp"
+            tools:textColor="@android:color/holo_red_dark" />
+
+        <TextView
+            android:id="@+id/txtViewDescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/txtViewArea"
+            android:layout_alignTop="@+id/edtxtDescripcion"
+            android:text="Descripción"
+            android:textSize="18dp"
+            tools:textColor="@android:color/holo_red_dark" />
+
+
+        <Button
+            android:id="@+id/btCancelar"
+            android:layout_width="156dp"
+            android:layout_height="64dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/btAceptar"
+            android:layout_marginEnd="137dp"
+            android:text="Cancelar"
+            android:textSize="14sp"
+            tools:layout_editor_absoluteX="617dp"
+            tools:layout_editor_absoluteY="436dp" />
+
+        <Button
+            android:id="@+id/btAceptar"
+            android:layout_width="156dp"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="201dp"
+            android:text="Aceptar"
+            tools:layout_editor_absoluteX="216dp"
+            tools:layout_editor_absoluteY="436dp" />
+
+        <TextView
+            android:id="@+id/txtViewIngreseFotoDefecto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/txtViewArea"
+            android:layout_marginEnd="187dp"
+            android:text="Ingrese foto del defecto:"
+            android:textSize="18dp"
+            tools:textColor="@android:color/holo_red_dark" />
+
+        <Spinner
+            android:id="@+id/spArea"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="296dp"
+            android:layout_marginTop="98dp"
+            android:fadingEdge="none"
+            tools:layout_editor_absoluteX="257dp"
+            tools:layout_editor_absoluteY="144dp" />
+
+        <Spinner
+            android:id="@+id/spLinea"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/spArea"
+            android:layout_alignTop="@+id/txtViewLinea"
+            tools:layout_editor_absoluteX="255dp"
+            tools:layout_editor_absoluteY="196dp" />
+
+        <Spinner
+            android:id="@+id/spEstacion"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/spArea"
+            android:layout_alignTop="@+id/txtViewLinea"
+            tools:layout_editor_absoluteX="255dp"
+            tools:layout_editor_absoluteY="239dp" />
+
+        <Spinner
+            android:id="@+id/spGravedad"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/spLinea"
+            android:layout_alignTop="@+id/txtViewGravedad"
+            tools:layout_editor_absoluteX="256dp"
+            tools:layout_editor_absoluteY="290dp" />
+
+        <EditText
+            android:id="@+id/edtxtDescripcion"
+            android:layout_width="276dp"
+            android:layout_height="76dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/spLinea"
+            android:layout_marginBottom="95dp"
+            android:background="#edeef6"
+            android:ems="10"
+            tools:layout_editor_absoluteX="255dp"
+            tools:layout_editor_absoluteY="341dp" />
+
+        <ImageView
+            android:id="@+id/imgLogoFurukawa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/furukawalogo" />
+
+        <ImageButton
+            android:id="@+id/imgbtFotoDefecto"
+            android:layout_width="34dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/txtViewArea"
+            android:layout_marginEnd="140dp"
+            android:layout_marginTop="0dp"
+            android:src="@drawable/ic_menu_camera" />
+
+        <ImageView
+            android:id="@+id/imgDefecto"
+            android:layout_width="167dp"
+            android:layout_height="190dp"
+            android:layout_alignStart="@+id/txtViewIngreseFotoDefecto"
+            android:layout_centerVertical="true"
+            android:src="@android:drawable/ic_menu_gallery" />
+
+        <!-- <ImageButton
+            android:id="@+id/imgbtFotoDefecto"
+            app:srcCompat="@android:drawable/ic_menu_camera"
+            android:layout_width="40dp"
+            android:layout_height="39dp"
+            tools:layout_editor_absoluteX="808dp"
+            tools:layout_editor_absoluteY="137dp" />
+
+        <ImageView
+            android:id="@+id/imgDefecto"
+            app:srcCompat="@android:drawable/ic_menu_gallery"
+            android:layout_width="187dp"
+            android:layout_height="201dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="170dp"
+            android:layout_marginTop="74dp"
+            tools:layout_editor_absoluteX="605dp"
+            tools:layout_editor_absoluteY="185dp" />
+    -->
+    </RelativeLayout>
+</FrameLayout>

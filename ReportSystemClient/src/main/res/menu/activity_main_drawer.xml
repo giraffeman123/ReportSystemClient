@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:title="Mantenimiento de Líderes">
+            <menu>
+                <item
+                    android:id="@+id/nav_agregar_lider"
+                    android:icon="@drawable/ic_add_lider_black_24dp"
+                    android:title="Agregar"
+                    />
+                <item
+                    android:id="@+id/nav_consultar_lider"
+                    android:icon="@drawable/ic_search_black_24dp"
+                    android:title="Consultar"
+                    />
+                <item
+                    android:id="@+id/nav_modificar_lider"
+                    android:icon="@drawable/ic_edit_black_24dp"
+                    android:title="Modificar"
+                    />
+                <item
+                    android:id="@+id/nav_eliminar_lider"
+                    android:icon="@drawable/ic_delete_black_24dp"
+                    android:title="Eliminar"
+                    />
+            </menu>
+        </item>
+        <item android:title="Mantenimiento de Códigos de Defectos">
+            <menu>
+                <item
+                    android:id="@+id/nav_agregar_codigo_defecto"
+                    android:icon="@drawable/ic_add_circle_black_24dp"
+                    android:title="Agregar" />
+                <item android:title="Consultar Codigo de Defectos">
+                         <item
+                            android:id="@+id/nav_consultar_codigo_defecto_por_area"
+                            android:icon="@drawable/ic_search_black_24dp"
+                            android:title="Por Area" />
+                </item>
+                <item
+                    android:id="@+id/nav_modificar_codigo_defecto"
+                    android:icon="@drawable/ic_edit_black_24dp"
+                    android:title="Modificar" />
+                <item
+                    android:id="@+id/nav_eliminar_codigo_defecto"
+                    android:icon="@drawable/ic_delete_black_24dp"
+                    android:title="Eliminar" />
+            </menu>
+        </item>
+        <item android:title="Defectos en linea">
+            <menu>
+                <item
+                    android:id="@+id/nav_agregar_defecto_en_linea"
+                    android:icon="@drawable/ic_add_circle_black_24dp"
+                    android:title="Agregar" />
+                <item android:title="Consultar Defectos en Linea">
+                        <item
+                            android:id="@+id/nav_consultar_defecto_en_linea_por_turno"
+                            android:icon="@drawable/ic_search_black_24dp"
+                            android:title="Por Turno" />
+                        <item
+                            android:id="@+id/nav_consultar_defecto_en_linea_por_fecha"
+                            android:icon="@drawable/ic_search_black_24dp"
+                            android:title="Por Fecha" />
+                        <item
+                            android:id="@+id/nav_consultar_defecto_en_linea_por_lider"
+                            android:icon="@drawable/ic_search_black_24dp"
+                            android:title="Por Lider" />
+                        <item
+                            android:id="@+id/nav_consultar_defecto_en_linea_por_linea"
+                            android:icon="@drawable/ic_search_black_24dp"
+                            android:title="Por Linea" />
+                </item>
+            </menu>
+        </item>
+
+        <item android:title="Configuración">
+            <menu>
+                <item
+                    android:id="@+id/nav_wifi_conf"
+                    android:icon="@drawable/ic_wifi_black_24dp"
+                    android:title="De Red" />
+            </menu>
+        </item>
+        <item
+            android:id="@+id/nav_cerrar_sesion"
+            android:icon="@drawable/ic_logout_black_24dp"
+            android:title="Cerrar Sesion"
+            />
+    </group>
+</menu>
