@@ -22,13 +22,15 @@ import com.furukawa.reportsystem.reportsystemapp.ui.defecto_en_linea.ConsultarDe
 import com.furukawa.reportsystem.reportsystemapp.ui.defecto_en_linea.ConsultarDefectoEnLineaPorLinea;
 import com.furukawa.reportsystem.reportsystemapp.ui.defecto_en_linea.ConsultarDefectoEnLineaPorTurno;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.AgregarLider;
+import com.furukawa.reportsystem.reportsystemapp.ui.lider.ConsultarAllLideres;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.ConsultarLider;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.EliminarLider;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.ModificarLider;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, AgregarLider.OnFragmentInteractionListener,
-        ConsultarLider.OnFragmentInteractionListener, EliminarLider.OnFragmentInteractionListener,
+        ConsultarLider.OnFragmentInteractionListener, ConsultarAllLideres.OnFragmentInteractionListener,
+        EliminarLider.OnFragmentInteractionListener,
         ModificarLider.OnFragmentInteractionListener, AgregarDefectoEnLinea.OnFragmentInteractionListener,
         ConsultarDefectoEnLineaPorFecha.OnFragmentInteractionListener, ConsultarDefectoEnLineaPorLider.OnFragmentInteractionListener,
         ConsultarDefectoEnLineaPorLinea.OnFragmentInteractionListener, ConsultarDefectoEnLineaPorTurno.OnFragmentInteractionListener,
@@ -109,6 +111,9 @@ public class MainActivity extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_consultar_lider) {
             ConsultarLider fragment = new ConsultarLider();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
+        } else if (id == R.id.nav_consultar_all_lideres) {
+            ConsultarAllLideres fragment = new ConsultarAllLideres();
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_modificar_lider) {
             ModificarLider fragment = new ModificarLider();

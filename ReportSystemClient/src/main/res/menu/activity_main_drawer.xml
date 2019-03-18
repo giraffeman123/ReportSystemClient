@@ -17,6 +17,11 @@
                     android:title="Consultar"
                     />
                 <item
+                    android:id="@+id/nav_consultar_all_lideres"
+                    android:icon="@drawable/ic_search_black_24dp"
+                    android:title="Consultar a todos los lideres"
+                    />
+                <item
                     android:id="@+id/nav_modificar_lider"
                     android:icon="@drawable/ic_edit_black_24dp"
                     android:title="Modificar"

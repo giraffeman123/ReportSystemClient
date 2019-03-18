@@ -7,17 +7,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.furukawa.reportsystem.reportsystemapp.R;
 import com.furukawa.reportsystem.reportsystemapp.api.model.Lider;
 
 import java.util.List;
 
 
-/** AGREGAR arrayadapter. Ejemplo: **/
-/** public class LiderAdapter extends ArrayAdapter<Lider>{} **/
-/** Tras agregar, crear un nuevo layout con las consultas de lider **/
-public class LiderAdapter{
+public class LiderAdapter extends ArrayAdapter<Lider>{
 
-/*
     private Context context;
     private List<Lider> listaLideres;
 
@@ -45,5 +42,4 @@ public class LiderAdapter{
 
         return row;
     }
-*/
 }
