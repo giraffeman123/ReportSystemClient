@@ -1,5 +1,7 @@
 package com.furukawa.reportsystem.reportsystemapp;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -9,29 +11,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.*;
+import com.furukawa.reportsystem.reportsystemapp.ui.defecto_en_linea.*;
+import com.furukawa.reportsystem.reportsystemapp.ui.lider.*;
 
-import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.AgregarCodigoDefecto;
-import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.ConsultarCodigoDefectoPorArea;
-import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.EliminarCodigoDefecto;
-import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.ModificarCodigoDefecto;
-import com.furukawa.reportsystem.reportsystemapp.ui.defecto_en_linea.AgregarDefectoEnLinea;
-import com.furukawa.reportsystem.reportsystemapp.ui.defecto_en_linea.ConsultarDefectoEnLineaPorFecha;
-import com.furukawa.reportsystem.reportsystemapp.ui.defecto_en_linea.ConsultarDefectoEnLineaPorLider;
-import com.furukawa.reportsystem.reportsystemapp.ui.defecto_en_linea.ConsultarDefectoEnLineaPorLinea;
-import com.furukawa.reportsystem.reportsystemapp.ui.defecto_en_linea.ConsultarDefectoEnLineaPorTurno;
-import com.furukawa.reportsystem.reportsystemapp.ui.lider.AgregarLider;
-import com.furukawa.reportsystem.reportsystemapp.ui.lider.ConsultarLider;
-import com.furukawa.reportsystem.reportsystemapp.ui.lider.EliminarLider;
-import com.furukawa.reportsystem.reportsystemapp.ui.lider.ModificarLider;
-
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public abstract class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener, AgregarLider.OnFragmentInteractionListener,ConsultarLider.OnFragmentInteractionListener,
+                EliminarLider.OnFragmentInteractionListener,ModificarLider.OnFragmentInteractionListener,AgregarDefectoEnLinea.OnFragmentInteractionListener,
+                ConsultarDefectoEnLineaPorFecha.OnFragmentInteractionListener, ConsultarDefectoEnLineaPorLider.OnFragmentInteractionListener,
+                ConsultarDefectoEnLineaPorLinea.OnFragmentInteractionListener,ConsultarDefectoEnLineaPorTurno.OnFragmentInteractionListener, AgregarCodigoDefecto.OnFragmentInteractionListener,
+                ConsultarCodigoDefectoPorArea.OnFragmentInteractionListener,EliminarCodigoDefecto.OnFragmentInteractionListener, ModificarCodigoDefecto.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Fragment fragment;
         setSupportActionBar(toolbar);
 
         /*
@@ -92,24 +88,24 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        AgregarLider fragment = null;
+        Fragment fragment = null;
         Boolean fragmentoSeleccionado = false;
 
         /*** MANTENIMIENTO DE LIDERES ***/
         if (id == R.id.nav_agregar_lider) {
             fragment = new AgregarLider();
-            fragmentoSeleccionado = true;
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
+            fragmentoSeleccionado=true;
         } else if (id == R.id.nav_consultar_lider) {
-            //fragment = new ConsultarLider();
+            fragment = new ConsultarLider();
             fragmentoSeleccionado = true;
         } else if (id == R.id.nav_modificar_lider) {
-            //fragment = new ModificarLider();
+            fragment = new ModificarLider();
             fragmentoSeleccionado = true;
         } else if (id == R.id.nav_eliminar_lider) {
-            //fragment = new EliminarLider();
+            fragment = new EliminarLider();
             fragmentoSeleccionado = true;
         }
-        /*** MANTENIMIENTO DE LIDERES ***/
 
         /*** MANTENIMIENTO DE CODIGO DE DEFECTO ***/
         else if (id == R.id.nav_agregar_codigo_defecto) {
