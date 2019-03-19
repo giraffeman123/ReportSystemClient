@@ -25,51 +25,24 @@ import retrofit2.Response;
  * Activities that contain this fragment must implement the
  * {@link ModificarLider.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ModificarLider#newInstance} factory method to
- * create an instance of this fragment.
  */
 public class ModificarLider extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     private Lider lider;
     private ReportSystemInterface api;
+    private OnSendingLiderListener listener;
 
     public ModificarLider() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ModificarLider.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ModificarLider newInstance(String param1, String param2) {
-        ModificarLider fragment = new ModificarLider();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public interface OnSendingLiderListener{
+        void onInputBuscarLiderSent(Lider lider);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
         api = ApiUtils.getReportSystemService();
     }
 
@@ -82,13 +55,13 @@ public class ModificarLider extends Fragment {
         btAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                modificarLider(codigoEdTxt.getText().toString());
+                buscarLider(codigoEdTxt.getText().toString());
             }
         });
         return v;
     }
 
-    public void modificarLider(String codigoEmpleado){
+    public void buscarLider(String codigoEmpleado){
         if(!codigoEmpleado.isEmpty()){
             Call<Lider> call = api.getLiderByCodigoEmpleado(codigoEmpleado);
             call.enqueue(new Callback<Lider>() {
@@ -100,6 +73,7 @@ public class ModificarLider extends Fragment {
 
                     if(response.body() != null){
                         lider = response.body();
+                        listener.onInputBuscarLiderSent(lider);
                         Toast.makeText(getActivity(),"Lider Encontrado",Toast.LENGTH_LONG).show();
                     }else
                         Toast.makeText(getActivity(),"Lider no encontrado",Toast.LENGTH_LONG).show();
@@ -113,6 +87,24 @@ public class ModificarLider extends Fragment {
         }else
             Toast.makeText(getActivity(),"Ingrese un codigo a buscar",Toast.LENGTH_LONG).show();
     }
+
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if(context instanceof OnSendingLiderListener){
+            listener = (OnSendingLiderListener) context;
+        }else {
+            throw new RuntimeException(context.toString()+" must implement OnSendingLiderListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated

@@ -141,33 +141,6 @@ public class AgregarLider extends Fragment {
             public void onClick(View view) {
                 String codigoEmpleado = CodigoEmpleado.getText().toString();
                 String nombre = Nombre.getText().toString();
-                /*Toast.makeText(getActivity().getApplicationContext(),codigoEmpleado+nombre
-                        +selectedLineaOption+selectedAreaOption+selectedTurnoOption,
-                        Toast.LENGTH_LONG).show();
-                */
-
-                /*
-                Retrofit.Builder builder = new Retrofit.Builder()
-                        .baseUrl("http://192.168.1.73:8000")
-                        .addConverterFactory(GsonConverterFactory.create());
-                Retrofit retrofit = builder.build();
-                ReportSystemClient client = retrofit.create(ReportSystemClient.class);
-                Call<Data> call = client.alta(new Data(codigoEmpleado,selectedAreaOption,selectedLineaOption,nombre,"lider",selectedTurnoOption,"null"));
-
-                call.enqueue(new Callback<Data>() {
-                    @Override
-                    public void onResponse(Call<Data> call, Response<Data> response) {
-                        //Response answer = response.body();
-
-                        Toast.makeText(getActivity().getApplicationContext(),"Exito",Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void onFailure(Call<Data> call, Throwable t) {
-                        Toast.makeText(getActivity().getApplicationContext(),"Error en el Servidor",Toast.LENGTH_LONG).show();
-                    }
-                });
-                */
             }
         });
         // Inflate the layout for this fragment

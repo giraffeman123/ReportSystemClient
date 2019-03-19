@@ -1,5 +1,6 @@
 package com.furukawa.reportsystem.reportsystemapp.api.service;
 
+import com.furukawa.reportsystem.reportsystemapp.api.model.Empleado;
 import com.furukawa.reportsystem.reportsystemapp.api.model.Lider;
 
 import java.util.List;
@@ -22,6 +23,15 @@ public interface ReportSystemInterface {
 
     @GET("servicio/api/lider/allLideresByNombre/{nombre}")
     Call<List<Lider>> getAllLideresByNombre(@Path("nombre") String nombre);
+
+    @FormUrlEncoded
+    @POST("servicio/api/lider/modificarLider")
+    Call<String> updateLider(@Field("codigoEmpleado") String codigoEmpleado,
+                             @Field("area") String area,
+                             @Field("linea") String linea,
+                             @Field("nombre") String nombre,
+                             @Field("puesto") String puesto,
+                             @Field("turno") String turno);
 
     @FormUrlEncoded
     @POST("servicio/api/lider/deleteLiderByCodigo")

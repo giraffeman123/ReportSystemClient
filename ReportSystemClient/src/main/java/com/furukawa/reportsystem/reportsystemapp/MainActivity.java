@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.furukawa.reportsystem.reportsystemapp.api.model.Lider;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.AgregarCodigoDefecto;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.ConsultarCodigoDefectoPorArea;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.EliminarCodigoDefecto;
@@ -26,12 +27,15 @@ import com.furukawa.reportsystem.reportsystemapp.ui.lider.ConsultarAllLideres;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.ConsultarLider;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.EliminarLider;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.ModificarLider;
+import com.furukawa.reportsystem.reportsystemapp.ui.lider.ModificarLiderB;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, AgregarLider.OnFragmentInteractionListener,
         ConsultarLider.OnFragmentInteractionListener, ConsultarAllLideres.OnFragmentInteractionListener,
         EliminarLider.OnFragmentInteractionListener,
-        ModificarLider.OnFragmentInteractionListener, AgregarDefectoEnLinea.OnFragmentInteractionListener,
+        ModificarLider.OnFragmentInteractionListener,ModificarLiderB.OnFragmentInteractionListener,
+        ModificarLider.OnSendingLiderListener,
+        AgregarDefectoEnLinea.OnFragmentInteractionListener,
         ConsultarDefectoEnLineaPorFecha.OnFragmentInteractionListener, ConsultarDefectoEnLineaPorLider.OnFragmentInteractionListener,
         ConsultarDefectoEnLineaPorLinea.OnFragmentInteractionListener, ConsultarDefectoEnLineaPorTurno.OnFragmentInteractionListener,
         AgregarCodigoDefecto.OnFragmentInteractionListener, ConsultarCodigoDefectoPorArea.OnFragmentInteractionListener,
@@ -180,5 +184,13 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    public void onInputBuscarLiderSent(Lider lider) {
+        ModificarLiderB fragment = ModificarLiderB.newInstance(lider.getCodigoEmpleado(),lider.getArea(),
+                String.valueOf(lider.getLinea()),lider.getEmpleado().getNombre(),lider.getEmpleado().getPuesto(),
+                lider.getEmpleado().getTurno());
+        getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
     }
 }
