@@ -1,5 +1,7 @@
 package com.furukawa.reportsystem.reportsystemapp.api.service;
 
+import android.support.annotation.NonNull;
+
 public class ApiUtils {
 
     private ApiUtils(){}

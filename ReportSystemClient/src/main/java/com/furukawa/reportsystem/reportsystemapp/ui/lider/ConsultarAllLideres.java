@@ -41,8 +41,6 @@ public class ConsultarAllLideres extends Fragment {
     private String mParam2;
     private ListView listView;
 
-    private OnFragmentInteractionListener mListener;
-
     public ConsultarAllLideres() {
         // Required empty public constructor
     }
@@ -72,23 +70,7 @@ public class ConsultarAllLideres extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-        ReportSystemInterface api = ApiUtils.getReportSystemService();
-        Call<List<Lider>> call = api.getAllLideres();
-
-        call.enqueue(new Callback<List<Lider>>() {
-            @Override
-            public void onResponse(Call<List<Lider>> call, Response<List<Lider>> response) {
-                List<Lider> repos = response.body();
-
-                listView.setAdapter(new LiderAdapter(getContext(), repos));
-            }
-
-            @Override
-            public void onFailure(Call<List<Lider>> call, Throwable t) {
-                Toast.makeText(getActivity(), "Error en el servidor",Toast.LENGTH_LONG).show();
-            }
-        });
+        getAllLideres();
     }
 
     @Override
@@ -99,28 +81,26 @@ public class ConsultarAllLideres extends Fragment {
         return v;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
+    public void getAllLideres(){
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
+        ReportSystemInterface api = ApiUtils.getReportSystemService();
+        Call<List<Lider>> call = api.getAllLideres();
+        call.enqueue(new Callback<List<Lider>>() {
+            @Override
+            public void onResponse(Call<List<Lider>> call, Response<List<Lider>> response) {
+                if(!response.isSuccessful()){
+                    Toast.makeText(getActivity(),"Code: "+ response.code(), Toast.LENGTH_LONG).show();
+                }
+                List<Lider> repos = response.body();
+                listView.setAdapter(new LiderAdapter(getContext(), repos));
+                Toast.makeText(getActivity(),"Code: "+response.code(),Toast.LENGTH_LONG).show();
+            }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
+            @Override
+            public void onFailure(Call<List<Lider>> call, Throwable t) {
+                Toast.makeText(getActivity(), "Error: "+t.getMessage(),Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     /**
