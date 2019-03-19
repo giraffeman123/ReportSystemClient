@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/edtxrIngresarCodigo"
+            android:id="@+id/edtxtIngreseCodigo"
             android:layout_width="575dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

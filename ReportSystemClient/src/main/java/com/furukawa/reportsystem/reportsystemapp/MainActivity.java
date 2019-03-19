@@ -1,5 +1,7 @@
 package com.furukawa.reportsystem.reportsystemapp;
 
+import android.app.Fragment;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.furukawa.reportsystem.reportsystemapp.api.model.Lider;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.AgregarCodigoDefecto;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.ConsultarCodigoDefectoPorArea;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.EliminarCodigoDefecto;
@@ -20,12 +23,23 @@ import com.furukawa.reportsystem.reportsystemapp.ui.defecto_en_linea.ConsultarDe
 import com.furukawa.reportsystem.reportsystemapp.ui.defecto_en_linea.ConsultarDefectoEnLineaPorLinea;
 import com.furukawa.reportsystem.reportsystemapp.ui.defecto_en_linea.ConsultarDefectoEnLineaPorTurno;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.AgregarLider;
+import com.furukawa.reportsystem.reportsystemapp.ui.lider.ConsultarAllLideres;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.ConsultarLider;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.EliminarLider;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.ModificarLider;
+import com.furukawa.reportsystem.reportsystemapp.ui.lider.ModificarLiderB;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, AgregarLider.OnFragmentInteractionListener,
+        ConsultarLider.OnFragmentInteractionListener, ConsultarAllLideres.OnFragmentInteractionListener,
+        EliminarLider.OnFragmentInteractionListener,
+        ModificarLider.OnFragmentInteractionListener,ModificarLiderB.OnFragmentInteractionListener,
+        ModificarLider.OnSendingLiderListener,
+        AgregarDefectoEnLinea.OnFragmentInteractionListener,
+        ConsultarDefectoEnLineaPorFecha.OnFragmentInteractionListener, ConsultarDefectoEnLineaPorLider.OnFragmentInteractionListener,
+        ConsultarDefectoEnLineaPorLinea.OnFragmentInteractionListener, ConsultarDefectoEnLineaPorTurno.OnFragmentInteractionListener,
+        AgregarCodigoDefecto.OnFragmentInteractionListener, ConsultarCodigoDefectoPorArea.OnFragmentInteractionListener,
+        EliminarCodigoDefecto.OnFragmentInteractionListener, ModificarCodigoDefecto.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,63 +106,66 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        AgregarLider fragment = null;
-        Boolean fragmentoSeleccionado = false;
+        //Fragment fragment = null;
+        //Boolean fragmentoSeleccionado = false;
 
         /*** MANTENIMIENTO DE LIDERES ***/
         if (id == R.id.nav_agregar_lider) {
-            fragment = new AgregarLider();
-            fragmentoSeleccionado = true;
+            AgregarLider fragment = new AgregarLider();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_consultar_lider) {
-            //fragment = new ConsultarLider();
-            fragmentoSeleccionado = true;
+            ConsultarLider fragment = new ConsultarLider();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
+        } else if (id == R.id.nav_consultar_all_lideres) {
+            ConsultarAllLideres fragment = new ConsultarAllLideres();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_modificar_lider) {
-            //fragment = new ModificarLider();
-            fragmentoSeleccionado = true;
+            ModificarLider fragment = new ModificarLider();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_eliminar_lider) {
-            //fragment = new EliminarLider();
-            fragmentoSeleccionado = true;
+            EliminarLider fragment = new EliminarLider();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         }
         /*** MANTENIMIENTO DE LIDERES ***/
 
         /*** MANTENIMIENTO DE CODIGO DE DEFECTO ***/
         else if (id == R.id.nav_agregar_codigo_defecto) {
-            fragmentoSeleccionado = true;
-            //fragment = new AgregarCodigoDefecto();
+            AgregarCodigoDefecto fragment = new AgregarCodigoDefecto();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_consultar_codigo_defecto_por_area) {
-            fragmentoSeleccionado = true;
-            //fragment = new ConsultarCodigoDefectoPorArea();
+            ConsultarCodigoDefectoPorArea fragment = new ConsultarCodigoDefectoPorArea();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_modificar_codigo_defecto) {
-            fragmentoSeleccionado = true;
-            //fragment = new ModificarCodigoDefecto();
+            ModificarCodigoDefecto fragment = new ModificarCodigoDefecto();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_eliminar_codigo_defecto) {
-            fragmentoSeleccionado = true;
-            //fragment = new EliminarCodigoDefecto();
+            EliminarCodigoDefecto fragment = new EliminarCodigoDefecto();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         }
         /*** MANTENIMIENTO DE CODIGO DE DEFECTO ***/
 
         /*** MANTENIMIENTO DEFECTO EN LINEA ***/
         else if (id == R.id.nav_agregar_defecto_en_linea) {
-            fragmentoSeleccionado = true;
-            //fragment = new AgregarDefectoEnLinea()
+            AgregarDefectoEnLinea fragment = new AgregarDefectoEnLinea();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         }else if (id == R.id.nav_consultar_defecto_en_linea_por_turno) {
-            fragmentoSeleccionado = true;
-            //fragment = new ConsultarDefectoEnLineaPorTurno();
+            ConsultarDefectoEnLineaPorTurno fragment = new ConsultarDefectoEnLineaPorTurno();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         }else if (id == R.id.nav_consultar_defecto_en_linea_por_fecha) {
-            fragmentoSeleccionado = true;
-            //fragment = new ConsultarDefectoEnLineaPorFecha();
+            ConsultarDefectoEnLineaPorFecha fragment = new ConsultarDefectoEnLineaPorFecha();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         }else if (id == R.id.nav_consultar_defecto_en_linea_por_lider) {
-            fragmentoSeleccionado = true;
-            //fragment = new ConsultarDefectoEnLineaPorLider();
+            ConsultarDefectoEnLineaPorLider fragment = new ConsultarDefectoEnLineaPorLider();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         }else if (id == R.id.nav_consultar_defecto_en_linea_por_linea) {
-            fragmentoSeleccionado = true;
-            //fragment = new ConsultarDefectoEnLineaPorLinea();
+            ConsultarDefectoEnLineaPorLinea fragment = new ConsultarDefectoEnLineaPorLinea();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         }
         /*** MANTENIMIENTO DEFECTO EN LINEA ***/
 
         /*** CONFIGURACION WI-FI ***/
         else if (id == R.id.nav_wifi_conf) {
-            fragmentoSeleccionado = true;
+            //getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         }
         /*** CONFIGURACION WI-FI ***/
 
@@ -159,12 +176,21 @@ public class MainActivity extends AppCompatActivity
         }
         /*** CERRAR SESION ***/
 
-        if(fragmentoSeleccionado){
-            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
-        }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onInputBuscarLiderSent(Lider lider) {
+        ModificarLiderB fragment = ModificarLiderB.newInstance(lider.getCodigoEmpleado(),lider.getArea(),
+                String.valueOf(lider.getLinea()),lider.getEmpleado().getNombre(),lider.getEmpleado().getPuesto(),
+                lider.getEmpleado().getTurno());
+        getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
     }
 }

@@ -1,12 +1,18 @@
 package com.furukawa.reportsystem.reportsystemapp.api.service;
 
-import com.furukawa.reportsystem.reportsystemapp.api.model.Lider;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
-import java.util.List;
+public class ReportSystemClient {
+    private static Retrofit retrofit = null;
 
-
-public interface ReportSystemClient {
-
-    //@GET("/api/lider/consulta_general")
-    //Call<List<Lider>> getAllLideres();
+    public static Retrofit getClient(String baseURL){
+        if(retrofit==null){
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(baseURL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        return retrofit;
+    }
 }
