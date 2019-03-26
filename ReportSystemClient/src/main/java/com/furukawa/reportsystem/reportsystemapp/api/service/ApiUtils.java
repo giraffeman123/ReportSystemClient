@@ -6,7 +6,7 @@ public class ApiUtils {
 
     private ApiUtils(){}
 
-    public static final String BASE_URL = "http://192.168.1.70:8080/";
+    public static final String BASE_URL = "http://192.168.0.113:8080/";
 
     public static ReportSystemInterface getReportSystemService(){
         return ReportSystemClient.getClient(BASE_URL).create(ReportSystemInterface.class);
