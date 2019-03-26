@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.furukawa.reportsystem.reportsystemapp.api.model.Lider;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.AgregarCodigoDefecto;
@@ -25,6 +27,7 @@ import com.furukawa.reportsystem.reportsystemapp.ui.defecto_en_linea.ConsultarDe
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.AgregarLider;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.ConsultarAllLideres;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.ConsultarLider;
+import com.furukawa.reportsystem.reportsystemapp.ui.lider.ConsultarLideresGeneral;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.EliminarLider;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.ModificarLider;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.ModificarLiderB;
@@ -34,7 +37,7 @@ public class MainActivity extends AppCompatActivity
         ConsultarLider.OnFragmentInteractionListener, ConsultarAllLideres.OnFragmentInteractionListener,
         EliminarLider.OnFragmentInteractionListener,
         ModificarLider.OnFragmentInteractionListener,ModificarLiderB.OnFragmentInteractionListener,
-        ModificarLider.OnSendingLiderListener,
+        ModificarLider.OnSendingLiderListener, ConsultarLideresGeneral.OnFragmentInteractionListener,
         AgregarDefectoEnLinea.OnFragmentInteractionListener,
         ConsultarDefectoEnLineaPorFecha.OnFragmentInteractionListener, ConsultarDefectoEnLineaPorLider.OnFragmentInteractionListener,
         ConsultarDefectoEnLineaPorLinea.OnFragmentInteractionListener, ConsultarDefectoEnLineaPorTurno.OnFragmentInteractionListener,
@@ -47,6 +50,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ImageView i = findViewById(R.id.imgLogoFurukawa);
 
         /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -60,6 +64,7 @@ public class MainActivity extends AppCompatActivity
         */
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -114,7 +119,7 @@ public class MainActivity extends AppCompatActivity
             AgregarLider fragment = new AgregarLider();
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_consultar_lider) {
-            ConsultarLider fragment = new ConsultarLider();
+            ConsultarLideresGeneral fragment = new ConsultarLideresGeneral();
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_consultar_all_lideres) {
             ConsultarAllLideres fragment = new ConsultarAllLideres();
