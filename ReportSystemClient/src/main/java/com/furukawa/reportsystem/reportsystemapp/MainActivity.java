@@ -111,6 +111,9 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+
+        // Hice un comentario de prueba para Github
+
         //Fragment fragment = null;
         //Boolean fragmentoSeleccionado = false;
 
