@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ImageView i = findViewById(R.id.imgLogoFurukawa);
+
 
         /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        ImageView i = (ImageView) findViewById(R.id.imgLogoFurukawa);
 
         // Hice un comentario de prueba para Github
 
@@ -120,18 +121,23 @@ public class MainActivity extends AppCompatActivity
         /*** MANTENIMIENTO DE LIDERES ***/
         if (id == R.id.nav_agregar_lider) {
             AgregarLider fragment = new AgregarLider();
+            i.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_consultar_lider) {
             ConsultarLideresGeneral fragment = new ConsultarLideresGeneral();
+            i.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_consultar_all_lideres) {
             ConsultarAllLideres fragment = new ConsultarAllLideres();
+            i.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_modificar_lider) {
             ModificarLider fragment = new ModificarLider();
+            i.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_eliminar_lider) {
             EliminarLider fragment = new EliminarLider();
+            i.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         }
         /*** MANTENIMIENTO DE LIDERES ***/
