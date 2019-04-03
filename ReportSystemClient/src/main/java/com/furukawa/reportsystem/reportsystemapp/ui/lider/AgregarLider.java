@@ -43,7 +43,7 @@ public class AgregarLider extends Fragment {
     private String mParam2;
     private String selectedLineaOption;
     private String selectedAreaOption;
-    //private String selectedTurnoOption;
+    private String selectedTurnoOption;
 
     private ReportSystemInterface api;
 
@@ -90,7 +90,7 @@ public class AgregarLider extends Fragment {
 
         final Spinner Linea = (Spinner) v.findViewById(R.id.spLinea);
         final Spinner Area = (Spinner) v.findViewById(R.id.spArea);
-       // final Spinner Turno = (Spinner) v.findViewById(R.id.spTurno);
+        final Spinner Turno = (Spinner) v.findViewById(R.id.spTurno);
         final EditText CodigoEmpleado = (EditText) v.findViewById(R.id.edtxtCodigoDeEmpleado);
         final EditText Nombre = (EditText) v.findViewById(R.id.edtxtNombre);
         final Button btAceptar = (Button) v.findViewById(R.id.btAceptar);
@@ -111,22 +111,21 @@ public class AgregarLider extends Fragment {
         arraySpinnerArea.add("SRC");
         arraySpinnerArea.add("Ensamblaje");
         arraySpinnerArea.add("Produccion");
-/*
+
         ArrayList<String> arraySpinnerTurno = new ArrayList<>();
         arraySpinnerTurno.add("Seleccione una");
         arraySpinnerTurno.add("Matutino");
         arraySpinnerTurno.add("Intermedio");
         arraySpinnerTurno.add("Vespertino");
- */
 
 
         ArrayAdapter<String> adapterLinea = new ArrayAdapter<String>(this.getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arraySpinnerLinea);
         ArrayAdapter<String> adapterArea = new ArrayAdapter<String>(this.getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arraySpinnerArea);
-        //ArrayAdapter<String> adapterTurno = new ArrayAdapter<String>(this.getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arraySpinnerTurno);
+        ArrayAdapter<String> adapterTurno = new ArrayAdapter<String>(this.getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arraySpinnerTurno);
 
         Linea.setAdapter(adapterLinea);
         Area.setAdapter(adapterArea);
-        //Turno.setAdapter(adapterTurno);
+        Turno.setAdapter(adapterTurno);
 
 
         Linea.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -134,11 +133,10 @@ public class AgregarLider extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 selectedLineaOption = Linea.getSelectedItem().toString();
                 selectedAreaOption = Area.getSelectedItem().toString();
-                //selectedTurnoOption = Turno.getSelectedItem().toString();
+                selectedTurnoOption = Turno.getSelectedItem().toString();
                 /*Toast.makeText(getActivity().getApplicationContext(),selectedLineaOption+
                         selectedAreaOption+selectedTurnoOption, Toast.LENGTH_LONG).show();
                         */
-
             }
 
             @Override
@@ -155,7 +153,7 @@ public class AgregarLider extends Fragment {
                 String txtNombreLider = Nombre.getText().toString();
                 String txtLinea = Linea.getSelectedItem().toString();
                 String txtArea = Area.getSelectedItem().toString();
-                //String txtTurno = Turno.getSelectedItem().toString();
+                String txtTurno = Turno.getSelectedItem().toString();
 
             }
         });
