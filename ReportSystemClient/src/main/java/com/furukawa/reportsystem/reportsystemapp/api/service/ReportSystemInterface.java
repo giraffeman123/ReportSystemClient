@@ -37,4 +37,12 @@ public interface ReportSystemInterface {
     @POST("servicio/api/lider/deleteLiderByCodigo")
     Call<String> deleteLiderByCodigoEmpleado(@Field("codigoEmpleado") String codigoEmpleado);
 
+    @FormUrlEncoded
+    @POST("servicio/api/lider/nuevoLider")
+    Call<String> saveLider(@Field("codigoEmpleado") String codigoEmpleado,
+                             @Field("area") String area,
+                             @Field("linea") String linea,
+                             @Field("nombre") String nombre,
+                             @Field("puesto") String puesto,
+                             @Field("turno") String turno);
 }

@@ -15,8 +15,14 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.furukawa.reportsystem.reportsystemapp.R;
+import com.furukawa.reportsystem.reportsystemapp.api.service.ApiUtils;
+import com.furukawa.reportsystem.reportsystemapp.api.service.ReportSystemInterface;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,6 +44,8 @@ public class AgregarLider extends Fragment {
     private String selectedLineaOption;
     private String selectedAreaOption;
     private String selectedTurnoOption;
+
+    private ReportSystemInterface api;
 
     private OnFragmentInteractionListener mListener;
 
@@ -70,6 +78,7 @@ public class AgregarLider extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        api = ApiUtils.getReportSystemService();
     }
 
     @Override
@@ -83,7 +92,7 @@ public class AgregarLider extends Fragment {
         final Spinner Area = (Spinner) v.findViewById(R.id.spArea);
         final Spinner Turno = (Spinner) v.findViewById(R.id.spTurno);
         final EditText CodigoEmpleado = (EditText) v.findViewById(R.id.edtxtCodigoDeEmpleado);
-        final EditText Nombre = (EditText) v.findViewById(R.id.edtxtNombre);
+        final EditText Nombre = (EditText) v.findViewById(R.id.edtxtNombreLider);
         final Button btAceptar = (Button) v.findViewById(R.id.btAceptar);
 
         ArrayList<String> arraySpinnerLinea = new ArrayList<>();
@@ -109,6 +118,7 @@ public class AgregarLider extends Fragment {
         arraySpinnerTurno.add("Intermedio");
         arraySpinnerTurno.add("Vespertino");
 
+
         ArrayAdapter<String> adapterLinea = new ArrayAdapter<String>(this.getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arraySpinnerLinea);
         ArrayAdapter<String> adapterArea = new ArrayAdapter<String>(this.getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arraySpinnerArea);
         ArrayAdapter<String> adapterTurno = new ArrayAdapter<String>(this.getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arraySpinnerTurno);
@@ -127,7 +137,6 @@ public class AgregarLider extends Fragment {
                 /*Toast.makeText(getActivity().getApplicationContext(),selectedLineaOption+
                         selectedAreaOption+selectedTurnoOption, Toast.LENGTH_LONG).show();
                         */
-
             }
 
             @Override
@@ -139,12 +148,41 @@ public class AgregarLider extends Fragment {
         btAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String codigoEmpleado = CodigoEmpleado.getText().toString();
-                String nombre = Nombre.getText().toString();
+
+                String txtCodigoEmpleado = CodigoEmpleado.getText().toString();
+                String txtNombreLider = Nombre.getText().toString();
+                String txtLinea = Linea.getSelectedItem().toString();
+                String txtArea = Area.getSelectedItem().toString();
+                String txtTurno = Turno.getSelectedItem().toString();
+
+                Toast.makeText(getActivity()," INFO:" + txtCodigoEmpleado + txtArea + txtLinea +
+                        txtNombreLider + "Lider"+ txtTurno,Toast.LENGTH_LONG).show();
+
+                agregarLider(txtCodigoEmpleado,txtArea,txtLinea,txtNombreLider,"Lider",txtTurno);
             }
         });
         // Inflate the layout for this fragment
         return v;
+    }
+
+
+    public void agregarLider(String codigo_empleado, String area, String linea, String nombre, String puesto, String turno){
+
+        Call<String> call = api.saveLider(codigo_empleado,area,linea,nombre,puesto,turno);
+
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if(!response.isSuccessful()){
+                    Toast.makeText(getActivity(),"Code: "+response.code(),Toast.LENGTH_LONG).show();
+                }
+                Toast.makeText(getActivity(),"Lider Agregado!", Toast.LENGTH_LONG).show();
+            }
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Toast.makeText(getActivity(),t.getMessage(),Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event
