@@ -92,7 +92,7 @@ public class AgregarLider extends Fragment {
         final Spinner Area = (Spinner) v.findViewById(R.id.spArea);
         final Spinner Turno = (Spinner) v.findViewById(R.id.spTurno);
         final EditText CodigoEmpleado = (EditText) v.findViewById(R.id.edtxtCodigoDeEmpleado);
-        final EditText Nombre = (EditText) v.findViewById(R.id.edtxtNombre);
+        final EditText Nombre = (EditText) v.findViewById(R.id.edtxtNombreLider);
         final Button btAceptar = (Button) v.findViewById(R.id.btAceptar);
 
         ArrayList<String> arraySpinnerLinea = new ArrayList<>();
@@ -154,6 +154,9 @@ public class AgregarLider extends Fragment {
                 String txtLinea = Linea.getSelectedItem().toString();
                 String txtArea = Area.getSelectedItem().toString();
                 String txtTurno = Turno.getSelectedItem().toString();
+
+                Toast.makeText(getActivity()," INFO:" + txtCodigoEmpleado + txtArea + txtLinea +
+                        txtNombreLider + "Lider"+ txtTurno,Toast.LENGTH_LONG).show();
 
                 agregarLider(txtCodigoEmpleado,txtArea,txtLinea,txtNombreLider,"Lider",txtTurno);
             }
