@@ -155,31 +155,33 @@ public class AgregarLider extends Fragment {
                 String txtArea = Area.getSelectedItem().toString();
                 String txtTurno = Turno.getSelectedItem().toString();
 
+                agregarLider(txtCodigoEmpleado,txtArea,txtLinea,txtNombreLider,"Lider",txtTurno);
             }
         });
         // Inflate the layout for this fragment
         return v;
     }
-/*
-    public void agregarLider(String codigo_empleado, String area, String linea, String nombre,
-                               String puesto, String turno){
-        Call<String> call = api.updateLider(codigo_empleado,area,linea,nombre,puesto,turno);
+
+
+    public void agregarLider(String codigo_empleado, String area, String linea, String nombre, String puesto, String turno){
+
+        Call<String> call = api.saveLider(codigo_empleado,area,linea,nombre,puesto,turno);
+
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if(!response.isSuccessful()){
                     Toast.makeText(getActivity(),"Code: "+response.code(),Toast.LENGTH_LONG).show();
                 }
-                Toast.makeText(getActivity(),"Lider Modificado", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(),"Lider Agregado!", Toast.LENGTH_LONG).show();
             }
-
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 Toast.makeText(getActivity(),t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
     }
-*/
+
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
