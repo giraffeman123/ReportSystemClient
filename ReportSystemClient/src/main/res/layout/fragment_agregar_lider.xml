@@ -79,8 +79,6 @@
                     android:text="Área:"
                     android:textAlignment="textEnd"
                     android:textSize="19dp"
-                    tools:layout_editor_absoluteX="50dp"
-                    tools:layout_editor_absoluteY="140dp"
                     tools:textColor="@android:color/holo_red_dark" />
             </LinearLayout>
 
@@ -110,7 +108,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginBottom="5dp"
-                    android:background="@android:color/transparent" />
+                    android:background="#edeef6"
+                    tools:textColor="@android:color/black" />
 
                 <Spinner
                     android:id="@+id/spLinea"
@@ -119,7 +118,9 @@
                     android:layout_alignStart="@+id/edtxtCodigoDeEmpleado"
                     android:layout_centerVertical="true"
                     android:layout_marginBottom="5dp"
-                    android:layout_marginStart="-1dp" />
+                    android:layout_marginStart="-1dp"
+                    android:background="#edeef6"
+                    tools:textColor="@android:color/black" />
 
                 <Spinner
                     android:id="@+id/spArea"
@@ -127,7 +128,9 @@
                     android:layout_height="40dp"
                     android:layout_alignStart="@+id/edtxtCodigoDeEmpleado"
                     android:layout_alignTop="@+id/txtViewArea"
-                    android:layout_marginBottom="5dp" />
+                    android:layout_marginBottom="5dp"
+                    android:background="#edeef6"
+                    tools:textColor="@android:color/black" />
 
             </LinearLayout>
         </LinearLayout>
