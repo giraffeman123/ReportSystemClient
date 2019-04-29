@@ -4,24 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ui.lider.ModificarLider"
+    tools:context=".ui.lider.ModificarLider"
     android:background="@color/blanco">
 
-    <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/edtxtIngreseCodigo"
-            android:layout_width="575dp"
+            android:id="@+id/edtxtCodigoDeEmpleado"
+            android:layout_width="252dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="167dp"
+            android:layout_alignBottom="@+id/txtViewCodigoDeEmpleado"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="328dp"
+            android:background="#edeef6"
             android:ems="10"
             android:inputType="textPersonName"
-            android:textSize="30sp" />
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="268dp"
+            tools:layout_editor_absoluteY="243dp" />
+
+        <!-- <EditText
+                 android:id="@+id/edtxtIngreseNombreDeLider"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignParentBottom="true"
+                 android:layout_centerHorizontal="true"
+                 android:layout_marginBottom="192dp"
+                 android:background="#edeef6"
+                 android:ems="10"
+                 android:inputType="textPersonName"
+                 android:textSize="30sp" />
+         -->
+        <TextView
+            android:id="@+id/txtViewArea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/txtViewNombre"
+            android:layout_marginBottom="180dp"
+            android:text="Área"
+            android:textSize="19dp"
+            tools:layout_editor_absoluteX="50dp"
+            tools:layout_editor_absoluteY="140dp"
+            tools:textColor="@android:color/holo_red_dark" />
+
+        <TextView
+            android:id="@+id/txtViewNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/edtxtNombre"
+            android:layout_alignStart="@+id/txtViewCodigoDeEmpleado"
+            android:text="Nombre"
+            android:textSize="19dp"
+            tools:layout_editor_absoluteX="50dp"
+            tools:layout_editor_absoluteY="197dp"
+            tools:textColor="@android:color/holo_red_dark" />
+
+
+        <EditText
+            android:id="@+id/edtxtNombre"
+            android:layout_width="252dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/edtxtCodigoDeEmpleado"
+            android:layout_marginTop="169dp"
+            android:background="#edeef6"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="268dp"
+            tools:layout_editor_absoluteY="243dp" />
 
         <Button
             android:id="@+id/btCancelar"
@@ -29,28 +83,106 @@
             android:layout_height="64dp"
             android:layout_alignParentEnd="true"
             android:layout_alignTop="@+id/btAceptar"
-            android:layout_marginEnd="212dp"
-            android:text="Cancelar" />
+            android:layout_marginEnd="220dp"
+            android:text="Cancelar"
+            android:textSize="14sp"
+            tools:layout_editor_absoluteX="268dp"
+            tools:layout_editor_absoluteY="311dp" />
 
         <Button
             android:id="@+id/btAceptar"
             android:layout_width="156dp"
             android:layout_height="64dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/edtxrIngresarCodigo"
-            android:layout_marginBottom="51dp"
-            android:text="Aceptar" />
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="49dp"
+            android:layout_marginStart="252dp"
+            android:padding="10px"
+            android:text="Aceptar"
+            tools:layout_editor_absoluteX="472dp"
+            tools:layout_editor_absoluteY="311dp" />
 
         <TextView
-            android:id="@+id/txtViewIngresarCodigo"
+            android:id="@+id/txtViewCodigoDeEmpleado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="150dp"
-            android:text="Ingrese el código del empleado a modificar:"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="125dp"
+            android:text="Código de Empleado"
             android:textColor="@android:color/holo_red_dark"
-            android:textSize="30sp" />
+            android:textSize="19dp" />
+
+        <TextView
+            android:id="@+id/txtViewLinea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/spLinea"
+            android:layout_alignStart="@+id/txtViewArea"
+            android:text="Linea"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="19dp" />
+
+        <TextView
+            android:id="@+id/txtViewTurno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/txtViewArea"
+            android:layout_below="@+id/imgLider"
+            android:text="Turno"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="19dp" />
+
+        <TextView
+            android:id="@+id/txtViewIngresarFotoDelLider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/edtxtCodigoDeEmpleado"
+            android:layout_marginEnd="201dp"
+            android:text="Ingresar foto del líder:"
+            android:textSize="19dp"
+            tools:textColor="@android:color/holo_red_dark" />
+
+        <ImageView
+            android:id="@+id/imgbtIngresarLider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/edtxtCodigoDeEmpleado"
+            android:layout_marginEnd="158dp"
+            app:srcCompat="@android:drawable/ic_menu_camera" />
+
+        <ImageView
+            android:id="@+id/imgLider"
+            android:layout_width="172dp"
+            android:layout_height="146dp"
+            android:layout_alignStart="@+id/txtViewIngresarFotoDelLider"
+            android:layout_centerVertical="true"
+            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+        <Spinner
+            android:id="@+id/spLinea"
+            android:layout_width="254dp"
+            android:layout_height="34dp"
+            android:layout_alignStart="@+id/edtxtCodigoDeEmpleado"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="-1dp" />
+
+        <Spinner
+            android:id="@+id/spArea"
+            android:layout_width="256dp"
+            android:layout_height="35dp"
+            android:layout_alignStart="@+id/edtxtCodigoDeEmpleado"
+            android:layout_alignTop="@+id/txtViewArea" />
+
+        <Spinner
+            android:id="@+id/spTurno"
+            android:layout_width="255dp"
+            android:layout_height="34dp"
+            android:layout_alignStart="@+id/edtxtCodigoDeEmpleado"
+            android:layout_alignTop="@+id/txtViewTurno" />
 
         <ImageView
             android:id="@+id/imgLogoFurukawa"
@@ -59,5 +191,6 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:src="@drawable/furukawalogo" />
+
     </RelativeLayout>
 </FrameLayout>
