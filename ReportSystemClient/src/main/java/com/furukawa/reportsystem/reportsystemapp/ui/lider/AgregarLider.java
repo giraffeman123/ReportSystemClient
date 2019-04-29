@@ -19,6 +19,7 @@ import com.furukawa.reportsystem.reportsystemapp.api.service.ApiUtils;
 import com.furukawa.reportsystem.reportsystemapp.api.service.ReportSystemInterface;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -155,10 +156,16 @@ public class AgregarLider extends Fragment {
                 String txtArea = Area.getSelectedItem().toString();
                 String txtTurno = Turno.getSelectedItem().toString();
 
-                Toast.makeText(getActivity()," INFO:" + txtCodigoEmpleado + txtArea + txtLinea +
-                        txtNombreLider + "Lider"+ txtTurno,Toast.LENGTH_LONG).show();
+                if(txtCodigoEmpleado.isEmpty() || txtNombreLider.isEmpty() || txtLinea.equals("Seleccione una")
+                        || txtArea.equals("Seleccione una") || txtTurno.equals("Seleccione una")){
+                    Toast.makeText(getActivity(),"Hay un campo vacío. Antes de presionar agregar llene todos los campos."
+                            ,Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getActivity()," INFO:" + txtCodigoEmpleado + txtArea + txtLinea +
+                            txtNombreLider + "Lider"+ txtTurno,Toast.LENGTH_LONG).show();
 
-                agregarLider(txtCodigoEmpleado,txtArea,txtLinea,txtNombreLider,"Lider",txtTurno);
+                    agregarLider(txtCodigoEmpleado,txtArea,txtLinea,txtNombreLider,"Lider",txtTurno);
+                }
             }
         });
         // Inflate the layout for this fragment
@@ -176,7 +183,12 @@ public class AgregarLider extends Fragment {
                 if(!response.isSuccessful()){
                     Toast.makeText(getActivity(),"Code: "+response.code(),Toast.LENGTH_LONG).show();
                 }
-                Toast.makeText(getActivity(),"Lider Agregado!", Toast.LENGTH_LONG).show();
+
+                if(response.body() == null){
+                    Toast.makeText(getActivity(),"Hubo un error en la alta",Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getActivity(),"Lider Agregado!", Toast.LENGTH_LONG).show();
+                }
             }
             @Override
             public void onFailure(Call<String> call, Throwable t) {
