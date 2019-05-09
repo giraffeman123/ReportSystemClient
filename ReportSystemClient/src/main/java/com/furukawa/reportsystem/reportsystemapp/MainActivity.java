@@ -1,6 +1,5 @@
 package com.furukawa.reportsystem.reportsystemapp;
 
-import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -29,15 +28,15 @@ import com.furukawa.reportsystem.reportsystemapp.ui.lider.ConsultarAllLideres;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.ConsultarLider;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.ConsultarLideresGeneral;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.EliminarLider;
+import com.furukawa.reportsystem.reportsystemapp.ui.lider.BuscarLider;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.ModificarLider;
-import com.furukawa.reportsystem.reportsystemapp.ui.lider.ModificarLiderB;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, AgregarLider.OnFragmentInteractionListener,
         ConsultarLider.OnFragmentInteractionListener, ConsultarAllLideres.OnFragmentInteractionListener,
         EliminarLider.OnFragmentInteractionListener,
-        ModificarLider.OnFragmentInteractionListener,ModificarLiderB.OnFragmentInteractionListener,
-        ModificarLider.OnSendingLiderListener, ConsultarLideresGeneral.OnFragmentInteractionListener,
+        BuscarLider.OnFragmentInteractionListener,ModificarLider.OnFragmentInteractionListener,
+        BuscarLider.OnSendingLiderListener, ConsultarLideresGeneral.OnFragmentInteractionListener,
         AgregarDefectoEnLinea.OnFragmentInteractionListener,
         ConsultarDefectoEnLineaPorFecha.OnFragmentInteractionListener, ConsultarDefectoEnLineaPorLider.OnFragmentInteractionListener,
         ConsultarDefectoEnLineaPorLinea.OnFragmentInteractionListener, ConsultarDefectoEnLineaPorTurno.OnFragmentInteractionListener,
@@ -127,12 +126,8 @@ public class MainActivity extends AppCompatActivity
             ConsultarLideresGeneral fragment = new ConsultarLideresGeneral();
             i.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
-        } else if (id == R.id.nav_consultar_all_lideres) {
-            ConsultarAllLideres fragment = new ConsultarAllLideres();
-            i.setVisibility(View.GONE);
-            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_modificar_lider) {
-            ModificarLider fragment = new ModificarLider();
+            BuscarLider fragment = new BuscarLider();
             i.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_eliminar_lider) {
@@ -202,7 +197,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onInputBuscarLiderSent(Lider lider) {
-        ModificarLiderB fragment = ModificarLiderB.newInstance(lider.getCodigoEmpleado(),lider.getArea(),
+        ModificarLider fragment = ModificarLider.newInstance(lider.getCodigoEmpleado(),lider.getArea(),
                 String.valueOf(lider.getLinea()),lider.getEmpleado().getNombre(),lider.getEmpleado().getPuesto(),
                 lider.getEmpleado().getTurno());
         getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
