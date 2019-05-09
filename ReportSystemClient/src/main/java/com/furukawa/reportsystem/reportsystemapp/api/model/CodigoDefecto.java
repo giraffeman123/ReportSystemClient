@@ -23,7 +23,7 @@ public class CodigoDefecto {
         this.codigoDefecto = codigoDefecto;
     }
 
-    public CodigoDefecto(String codigoDefecto, String area, String gravedad, String descripcion, String maquina) {
+    public CodigoDefecto(String area, String gravedad, String descripcion, String codigoDefecto,  String maquina) {
         this.codigoDefecto = codigoDefecto;
         this.area = area;
         this.gravedad = gravedad;
