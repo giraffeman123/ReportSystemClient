@@ -10,6 +10,8 @@ public class CodigoDefecto {
 
     private String codigoDefecto;
 
+    private String maquina;
+
     private byte[] fotografia;
 
     private Defecto defecto;
@@ -21,11 +23,12 @@ public class CodigoDefecto {
         this.codigoDefecto = codigoDefecto;
     }
 
-    public CodigoDefecto(String codigoDefecto, String area, String gravedad, String descripcion) {
+    public CodigoDefecto(String codigoDefecto, String area, String gravedad, String descripcion, String maquina) {
         this.codigoDefecto = codigoDefecto;
         this.area = area;
         this.gravedad = gravedad;
         this.descripcion = descripcion;
+        this.maquina = maquina;
     }
 
     public String getArea() {
@@ -74,5 +77,13 @@ public class CodigoDefecto {
 
     public void setDefecto(Defecto defecto) {
         this.defecto = defecto;
+    }
+
+    public String getMaquina() {
+        return maquina;
+    }
+
+    public void setMaquina(String maquina) {
+        this.maquina = maquina;
     }
 }
