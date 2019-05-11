@@ -86,9 +86,7 @@ public class AgregarCodigoDefecto extends Fragment {
         View v = inflater.inflate(R.layout.fragment_agregar_codigo_defecto, container, false);
 
         final Spinner Area = (Spinner) v.findViewById(R.id.spArea);
-        final Spinner Linea = (Spinner) v.findViewById(R.id.spLinea);
         final Spinner Maquina = (Spinner) v.findViewById(R.id.spMaquina);
-        final Spinner Estacion = (Spinner) v.findViewById(R.id.spEstacion);
         final Spinner Gravedad = (Spinner) v.findViewById(R.id.spGravedad);
         final EditText Descripcion = (EditText) v.findViewById(R.id.edtxtDescripcion);
 
@@ -101,16 +99,6 @@ public class AgregarCodigoDefecto extends Fragment {
         arraySpinnerArea.add("Ensamblaje");
         arraySpinnerArea.add("Produccion");
 
-        ArrayList<String> arraySpinnerLinea = new ArrayList<>();
-        arraySpinnerLinea.add("Seleccione una");
-        arraySpinnerLinea.add("1");
-        arraySpinnerLinea.add("2");
-        arraySpinnerLinea.add("3");
-        arraySpinnerLinea.add("4");
-        arraySpinnerLinea.add("5");
-        arraySpinnerLinea.add("6");
-        arraySpinnerLinea.add("7");
-
         ArrayList<String> arraySpinnerMaquina = new ArrayList<>();
         arraySpinnerMaquina.add("Seleccione una");
         arraySpinnerMaquina.add("Basbar Press");
@@ -120,16 +108,6 @@ public class AgregarCodigoDefecto extends Fragment {
         arraySpinnerMaquina.add("Multi Function Press");
         arraySpinnerMaquina.add("Final Tester");
 
-        ArrayList<String> arraySpinnerEstacion = new ArrayList<>();
-        arraySpinnerEstacion.add("Seleccione una");
-        arraySpinnerEstacion.add("1");
-        arraySpinnerEstacion.add("2");
-        arraySpinnerEstacion.add("3");
-        arraySpinnerEstacion.add("4");
-        arraySpinnerEstacion.add("5");
-        arraySpinnerEstacion.add("6");
-        arraySpinnerEstacion.add("7");
-
         ArrayList<String> arraySpinnerGravedad = new ArrayList<>();
         arraySpinnerGravedad.add("Seleccione una");
         arraySpinnerGravedad.add("Pequeña");
@@ -137,15 +115,11 @@ public class AgregarCodigoDefecto extends Fragment {
         arraySpinnerGravedad.add("Grande");
 
         ArrayAdapter<String> adapterArea = new ArrayAdapter<String>(this.getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arraySpinnerArea);
-        ArrayAdapter<String> adapterLinea = new ArrayAdapter<String>(this.getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arraySpinnerLinea);
         ArrayAdapter<String> adapterMaquina = new ArrayAdapter<String>(this.getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arraySpinnerMaquina);
-        ArrayAdapter<String> adapterEstacion = new ArrayAdapter<String>(this.getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arraySpinnerEstacion);
         ArrayAdapter<String> adapterGravedad = new ArrayAdapter<String>(this.getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arraySpinnerGravedad);
 
         Area.setAdapter(adapterArea);
-        Linea.setAdapter(adapterLinea);
         Maquina.setAdapter(adapterMaquina);
-        Estacion.setAdapter(adapterEstacion);
         Gravedad.setAdapter(adapterGravedad);
 
         btAceptar.setOnClickListener(new View.OnClickListener() {
@@ -153,24 +127,21 @@ public class AgregarCodigoDefecto extends Fragment {
             public void onClick(View view) {
 
                 String txtArea = Area.getSelectedItem().toString();
-                String txtLinea = Linea.getSelectedItem().toString();
                 String txtMaquina = Maquina.getSelectedItem().toString();
-                String txtEstacion = Estacion.getSelectedItem().toString();
                 String txtGravedad = Gravedad.getSelectedItem().toString();
                 String txtDescripcion = Descripcion.getText().toString();
 
-                if(txtArea.equals("Seleccione una") || txtLinea.equals("Seleccione una")
+                if(txtArea.equals("Seleccione una")
                         || txtMaquina.equals("Seleccione una")
-                        || txtEstacion.equals("Seleccione una")
                         || txtGravedad.equals("Seleccione una")
-                        || txtMaquina.equals("Seleccione una")
                         || txtDescripcion.isEmpty()){
+
                     Toast.makeText(getActivity(),"Hay un campo vacío. Antes de presionar agregar llene todos los campos."
                             ,Toast.LENGTH_LONG).show();
                 }else{
                     //Toast.makeText(getActivity()," INFO:" + txtCodigoEmpleado + txtArea + txtLinea + txtNombreLider + "Lider"+ txtTurno,Toast.LENGTH_LONG).show();
 
-                   // agregarCodigoDefecto(txtArea,txtLinea,txtNombreLider,"Lider",txtTurno);
+                    agregarCodigoDefecto(txtArea,txtMaquina,txtGravedad,txtDescripcion);
                 }
             }
         });
@@ -178,9 +149,10 @@ public class AgregarCodigoDefecto extends Fragment {
         return v;
     }
 
-  /*  public void agregarCodigoDefecto(String area, String gravedad, String descripcion, String codigoDefecto,  String maquina){
 
-        Call<String> call = api.saveCodigoDefecto(codigo_empleado,area,linea,nombre,puesto,turno);
+   public void agregarCodigoDefecto(String area, String maquina, String gravedad, String descripcion){
+
+        Call<String> call = api.saveCodigoDefecto(area,maquina,gravedad,descripcion);
 
         call.enqueue(new Callback<String>() {
             @Override
@@ -192,7 +164,7 @@ public class AgregarCodigoDefecto extends Fragment {
                 if(response.body() == null){
                     Toast.makeText(getActivity(),"Hubo un error en la alta",Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(getActivity(),"Lider Agregado!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"Codigo de Defecto Agregado!", Toast.LENGTH_LONG).show();
                 }
             }
             @Override
@@ -201,7 +173,6 @@ public class AgregarCodigoDefecto extends Fragment {
             }
         });
     }
-    */
 
 
 

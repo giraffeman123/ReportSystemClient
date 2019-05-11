@@ -46,4 +46,13 @@ public interface ReportSystemInterface {
                              @Field("nombre") String nombre,
                              @Field("puesto") String puesto,
                              @Field("turno") String turno);
+
+    @FormUrlEncoded
+    @POST("servicio/api/codigoDefecto/nuevoCodigoDefecto")
+    Call<String> saveCodigoDefecto(@Field("area") String area,
+                           @Field("maquina") String maquina,
+                           @Field("gravedad") String gravedad,
+                           @Field("descripcion") String descripcion);
+
+
 }

@@ -97,21 +97,6 @@
                     tools:textColor="@android:color/holo_red_dark" />
 
                 <TextView
-                    android:id="@+id/txtViewLinea"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignStart="@+id/txtViewArea"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginRight="10dp"
-                    android:text="Línea"
-                    android:textAlignment="textEnd"
-                    android:textSize="18dp"
-                    tools:layout_editor_absoluteX="121dp"
-                    tools:layout_editor_absoluteY="196dp"
-                    tools:textColor="@android:color/holo_red_dark" />
-
-                <TextView
                     android:id="@+id/txtViewMaquina"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
@@ -120,21 +105,6 @@
                     android:text="Máquina"
                     android:textAlignment="textEnd"
                     android:textSize="18dp"
-                    tools:textColor="@android:color/holo_red_dark" />
-
-                <TextView
-                    android:id="@+id/txtViewEstacion"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignStart="@+id/txtViewArea"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginRight="10dp"
-                    android:text="Estación"
-                    android:textAlignment="textEnd"
-                    android:textSize="18dp"
-                    tools:layout_editor_absoluteX="121dp"
-                    tools:layout_editor_absoluteY="239dp"
                     tools:textColor="@android:color/holo_red_dark" />
 
                 <TextView
@@ -184,30 +154,10 @@
                     tools:layout_editor_absoluteY="144dp" />
 
                 <Spinner
-                    android:id="@+id/spLinea"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_alignStart="@+id/spArea"
-                    android:layout_alignTop="@+id/txtViewLinea"
-                    android:layout_marginBottom="5dp"
-                    tools:layout_editor_absoluteX="255dp"
-                    tools:layout_editor_absoluteY="196dp" />
-
-                <Spinner
                     android:id="@+id/spMaquina"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginBottom="5dp" />
-
-                <Spinner
-                    android:id="@+id/spEstacion"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_alignStart="@+id/spArea"
-                    android:layout_alignTop="@+id/txtViewLinea"
-                    android:layout_marginBottom="5dp"
-                    tools:layout_editor_absoluteX="255dp"
-                    tools:layout_editor_absoluteY="239dp" />
 
                 <Spinner
                     android:id="@+id/spGravedad"
@@ -222,7 +172,7 @@
                 <EditText
                     android:id="@+id/edtxtDescripcion"
                     android:layout_width="match_parent"
-                    android:layout_height="93dp"
+                    android:layout_height="124dp"
                     android:layout_alignParentBottom="true"
                     android:layout_alignStart="@+id/spLinea"
                     android:layout_marginBottom="95dp"
