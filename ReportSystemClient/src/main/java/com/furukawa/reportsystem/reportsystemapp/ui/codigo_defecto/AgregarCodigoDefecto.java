@@ -110,9 +110,9 @@ public class AgregarCodigoDefecto extends Fragment {
 
         ArrayList<String> arraySpinnerGravedad = new ArrayList<>();
         arraySpinnerGravedad.add("Seleccione una");
-        arraySpinnerGravedad.add("Pequeña");
-        arraySpinnerGravedad.add("Mediana");
-        arraySpinnerGravedad.add("Grande");
+        arraySpinnerGravedad.add("Bajo");
+        arraySpinnerGravedad.add("Medio");
+        arraySpinnerGravedad.add("Alto");
 
         ArrayAdapter<String> adapterArea = new ArrayAdapter<String>(this.getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arraySpinnerArea);
         ArrayAdapter<String> adapterMaquina = new ArrayAdapter<String>(this.getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arraySpinnerMaquina);
