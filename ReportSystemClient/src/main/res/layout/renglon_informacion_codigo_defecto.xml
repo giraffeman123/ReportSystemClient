@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="312dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtViewCodigoDefecto"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:text="CodigoDefecto"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/txtViewArea"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:text="Area"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtViewMaquina"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:text="Máquina"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtViewGravedad"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:text="Gravedad"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtViewDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:text="Descripción"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="243dp"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/ic_menu_manage" />
+</LinearLayout>
