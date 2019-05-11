@@ -111,7 +111,7 @@ public class EliminarLider extends Fragment {
                 }
             });
         }else
-            Toast.makeText(getActivity(),"Ingrese un codigo a buscar",Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(),"Ingrese un código a buscar",Toast.LENGTH_LONG).show();
     }
 
     /**

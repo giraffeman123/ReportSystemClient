@@ -12,9 +12,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.furukawa.reportsystem.reportsystemapp.api.model.CodigoDefecto;
 import com.furukawa.reportsystem.reportsystemapp.api.model.Lider;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.AgregarCodigoDefecto;
+import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.BuscarCodigoDefecto;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.ConsultarCodigoDefectoPorArea;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.EliminarCodigoDefecto;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.ModificarCodigoDefecto;
@@ -34,13 +37,16 @@ import com.furukawa.reportsystem.reportsystemapp.ui.lider.ModificarLider;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, AgregarLider.OnFragmentInteractionListener,
         ConsultarLider.OnFragmentInteractionListener, ConsultarAllLideres.OnFragmentInteractionListener,
-        EliminarLider.OnFragmentInteractionListener,
         BuscarLider.OnFragmentInteractionListener,ModificarLider.OnFragmentInteractionListener,
         BuscarLider.OnSendingLiderListener, ConsultarLideresGeneral.OnFragmentInteractionListener,
+        EliminarLider.OnFragmentInteractionListener,
         AgregarDefectoEnLinea.OnFragmentInteractionListener,
         ConsultarDefectoEnLineaPorFecha.OnFragmentInteractionListener, ConsultarDefectoEnLineaPorLider.OnFragmentInteractionListener,
         ConsultarDefectoEnLineaPorLinea.OnFragmentInteractionListener, ConsultarDefectoEnLineaPorTurno.OnFragmentInteractionListener,
-        AgregarCodigoDefecto.OnFragmentInteractionListener, ConsultarCodigoDefectoPorArea.OnFragmentInteractionListener,
+        AgregarCodigoDefecto.OnFragmentInteractionListener,
+        BuscarCodigoDefecto.OnFragmentInteractionListener,
+        BuscarCodigoDefecto.OnSendingCodigoDefectoListener,
+        ConsultarCodigoDefectoPorArea.OnFragmentInteractionListener,
         EliminarCodigoDefecto.OnFragmentInteractionListener, ModificarCodigoDefecto.OnFragmentInteractionListener{
 
     @Override
@@ -145,7 +151,7 @@ public class MainActivity extends AppCompatActivity
             ConsultarCodigoDefectoPorArea fragment = new ConsultarCodigoDefectoPorArea();
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_modificar_codigo_defecto) {
-            ModificarCodigoDefecto fragment = new ModificarCodigoDefecto();
+            BuscarCodigoDefecto fragment = new BuscarCodigoDefecto();
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_eliminar_codigo_defecto) {
             EliminarCodigoDefecto fragment = new EliminarCodigoDefecto();
@@ -200,6 +206,17 @@ public class MainActivity extends AppCompatActivity
         ModificarLider fragment = ModificarLider.newInstance(lider.getCodigoEmpleado(),lider.getArea(),
                 String.valueOf(lider.getLinea()),lider.getEmpleado().getNombre(),lider.getEmpleado().getPuesto(),
                 lider.getEmpleado().getTurno());
+        getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
+    }
+
+    @Override
+    public void OnInputBuscarCodigoDefectoSent(CodigoDefecto codigoDefecto) {
+      //  Toast.makeText(getApplicationContext(),codigoDefecto.getCodigoDefecto()+"|"+codigoDefecto.getArea()
+       //         +"|"+codigoDefecto.getMaquina()+"|"+codigoDefecto.getGravedad()
+        //        +"|"+codigoDefecto.getDescripcion(),Toast.LENGTH_LONG).show();
+
+        ModificarCodigoDefecto fragment = ModificarCodigoDefecto.newInstance(codigoDefecto.getCodigoDefecto(),codigoDefecto.getArea()
+                ,codigoDefecto.getMaquina(),codigoDefecto.getGravedad(),codigoDefecto.getDescripcion());
         getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
     }
 }

@@ -1,5 +1,6 @@
 package com.furukawa.reportsystem.reportsystemapp.api.service;
 
+import com.furukawa.reportsystem.reportsystemapp.api.model.CodigoDefecto;
 import com.furukawa.reportsystem.reportsystemapp.api.model.Empleado;
 import com.furukawa.reportsystem.reportsystemapp.api.model.Lider;
 
@@ -46,4 +47,18 @@ public interface ReportSystemInterface {
                              @Field("nombre") String nombre,
                              @Field("puesto") String puesto,
                              @Field("turno") String turno);
+
+
+    @GET("servicio/api/codigoDefecto/codigoDefectoByCodigoDefecto/{codigo}")
+    Call<CodigoDefecto> getCodigoDefectoByCodigo(@Path("codigoDefecto") String codigo);
+
+    @FormUrlEncoded
+    @POST("servicio/api/codigoDefecto/modificarCodigoDefecto")
+    Call<String> uptadeCodigoDefecto(@Field("codigoDefecto") String codigoDefecto,
+                           @Field("gravedad") String gravedad,
+                           @Field("descripcion") String descripcion);
+
+    @FormUrlEncoded
+    @POST("servicio/api/codigoDefecto/eliminarCodigoDefecto")
+    Call<String> deleteCodigoDefectoByCodigo(@Field("codigoDefecto") String codigoDefecto);
 }
