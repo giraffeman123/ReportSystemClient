@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.codigo_defecto.BuscarCodigoDefectoPorAreaAndMaquina"
+    android:background="@color/blanco">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Spinner
+            android:id="@+id/spGravedadBuscar"
+            android:layout_width="575dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="67dp" />
+
+        <Button
+            android:id="@+id/btCancelar"
+            android:layout_width="156dp"
+            android:layout_height="64dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/btAceptar"
+            android:layout_marginEnd="212dp"
+            android:text="Cancelar" />
+
+        <Button
+            android:id="@+id/btAceptar"
+            android:layout_width="156dp"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/txtViewIngresarCodigo"
+            android:layout_marginBottom="62dp"
+            android:text="Aceptar" />
+
+        <TextView
+            android:id="@+id/txtViewIngresarCodigo"
+            android:layout_width="463dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="128dp"
+            android:text="Ingrese la gravedad a buscar:"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/imgLogoFurukawa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/furukawalogo" />
+
+        <TextView
+            android:id="@+id/txtViewGravedadBuscar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="146dp"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:text="Gravedad:"
+            android:textColor="@color/rojo"
+            android:textSize="30sp" />
+    </RelativeLayout>
+
+</FrameLayout>
