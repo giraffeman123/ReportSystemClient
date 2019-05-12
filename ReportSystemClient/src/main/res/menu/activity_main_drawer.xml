@@ -14,7 +14,7 @@
                 <item
                     android:id="@+id/nav_consultar_lider"
                     android:icon="@drawable/ic_search_black_24dp"
-                    android:title="Consultar"
+                    android:title="Consulta General"
                     />
                 <item
                     android:id="@+id/nav_modificar_lider"
@@ -34,11 +34,17 @@
                     android:id="@+id/nav_agregar_codigo_defecto"
                     android:icon="@drawable/ic_add_circle_black_24dp"
                     android:title="Agregar" />
-                <item android:title="Consultar Codigo de Defectos">
+
+                <item android:title="Consultar Código de Defectos">
                          <item
                             android:id="@+id/nav_consultar_codigo_defecto_por_area"
                             android:icon="@drawable/ic_search_black_24dp"
-                            android:title="Por Area" />
+                            android:title="Por Área y Máquina" />
+
+                         <item
+                            android:id="@+id/nav_consultar_codigo_defecto_por_gravedad"
+                            android:icon="@drawable/ic_search_black_24dp"
+                            android:title="Por Gravedad" />
                 </item>
                 <item
                     android:id="@+id/nav_modificar_codigo_defecto"

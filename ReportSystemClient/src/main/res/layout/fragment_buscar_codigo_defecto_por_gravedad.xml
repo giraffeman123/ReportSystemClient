@@ -10,34 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/txtViewMaquinaBuscar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/spMaquinaBuscar"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="104dp"
-            android:fontFamily="@font/roboto_slab_bold"
-            android:text="Máquina:"
-            android:textColor="@color/rojo"
-            android:textSize="30sp" />
-
         <Spinner
             android:id="@+id/spGravedadBuscar"
             android:layout_width="575dp"
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="133dp"
-            android:layout_marginTop="180dp" />
-
-        <Spinner
-            android:id="@+id/spMaquinaBuscar"
-            android:layout_width="575dp"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/spGravedadBuscar"
-            android:layout_marginBottom="179dp" />
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="67dp" />
 
         <Button
             android:id="@+id/btCancelar"
@@ -53,18 +32,18 @@
             android:layout_width="156dp"
             android:layout_height="64dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="49dp"
-            android:layout_toEndOf="@+id/txtViewMaquinaBuscar"
+            android:layout_alignStart="@+id/txtViewIngresarCodigo"
+            android:layout_marginBottom="62dp"
             android:text="Aceptar" />
 
         <TextView
             android:id="@+id/txtViewIngresarCodigo"
-            android:layout_width="569dp"
+            android:layout_width="463dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="116dp"
-            android:text="Ingrese el área y la máquina a buscar:"
+            android:layout_marginTop="128dp"
+            android:text="Ingrese la gravedad a buscar:"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="30sp" />
 
@@ -77,14 +56,14 @@
             android:src="@drawable/furukawalogo" />
 
         <TextView
-            android:id="@+id/txtViewAreaBuscar"
+            android:id="@+id/txtViewGravedadBuscar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignTop="@+id/spGravedadBuscar"
+            android:layout_centerVertical="true"
             android:layout_marginStart="146dp"
             android:fontFamily="@font/roboto_slab_bold"
-            android:text="Área:"
+            android:text="Gravedad:"
             android:textColor="@color/rojo"
             android:textSize="30sp" />
     </RelativeLayout>

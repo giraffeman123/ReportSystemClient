@@ -74,6 +74,10 @@ public interface ReportSystemInterface {
     Call<List<CodigoDefecto>> allCodigoDefectoByAreaAndMaquina(@Field("area") String area,
                              @Field("maquina") String maquina);
 
+    @FormUrlEncoded
+    @POST("servicio/api/codigoDefecto/allCodigoDefectoByGravedad")
+    Call<List<CodigoDefecto>> allCodigoDefectoByGravedad(@Field("gravedad") String gravedad);
+
 
 
 }

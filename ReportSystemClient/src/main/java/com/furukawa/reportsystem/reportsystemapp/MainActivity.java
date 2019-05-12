@@ -17,7 +17,9 @@ import com.furukawa.reportsystem.reportsystemapp.api.model.CodigoDefecto;
 import com.furukawa.reportsystem.reportsystemapp.api.model.Lider;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.AgregarCodigoDefecto;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.BuscarCodigoDefectoPorAreaAndMaquina;
+import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.BuscarCodigoDefectoPorGravedad;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.ConsultarCodigoDefectoPorAreaAndMaquina;
+import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.ConsultarCodigoDefectoPorGravedad;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.EliminarCodigoDefecto;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.ModificarCodigoDefecto;
 import com.furukawa.reportsystem.reportsystemapp.ui.defecto_en_linea.AgregarDefectoEnLinea;
@@ -47,7 +49,9 @@ public class MainActivity extends AppCompatActivity
         ConsultarDefectoEnLineaPorLinea.OnFragmentInteractionListener, ConsultarDefectoEnLineaPorTurno.OnFragmentInteractionListener,
         AgregarCodigoDefecto.OnFragmentInteractionListener, ConsultarCodigoDefectoPorAreaAndMaquina.OnFragmentInteractionListener,
         EliminarCodigoDefecto.OnFragmentInteractionListener, ModificarCodigoDefecto.OnFragmentInteractionListener,
-        BuscarCodigoDefectoPorAreaAndMaquina.OnFragmentInteractionListener, BuscarCodigoDefectoPorAreaAndMaquina.OnSendingCodigoDefectoListener{
+        BuscarCodigoDefectoPorAreaAndMaquina.OnFragmentInteractionListener, BuscarCodigoDefectoPorAreaAndMaquina.OnSendingCodigoDefectoListener,
+        ConsultarCodigoDefectoPorGravedad.OnFragmentInteractionListener,BuscarCodigoDefectoPorGravedad.OnFragmentInteractionListener
+        ,BuscarCodigoDefectoPorGravedad.OnSendingCodigoDefectoListenerGravedad{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,6 +154,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_consultar_codigo_defecto_por_area) {
             BuscarCodigoDefectoPorAreaAndMaquina fragment = new BuscarCodigoDefectoPorAreaAndMaquina();
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
+        } else if (id == R.id.nav_consultar_codigo_defecto_por_gravedad) {
+            BuscarCodigoDefectoPorGravedad fragment = new BuscarCodigoDefectoPorGravedad();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_modificar_codigo_defecto) {
             ModificarCodigoDefecto fragment = new ModificarCodigoDefecto();
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
@@ -212,6 +219,13 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void OnInputBuscarCodigoDefectoSent(List<CodigoDefecto> codigoDefecto) {
         ConsultarCodigoDefectoPorAreaAndMaquina fragment = ConsultarCodigoDefectoPorAreaAndMaquina.newInstance((Serializable) codigoDefecto);
+        getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
+
+    }
+
+    @Override
+    public void OnInputBuscarCodigoDefectoGravedadSent(List<CodigoDefecto> codigoDefecto) {
+        ConsultarCodigoDefectoPorGravedad fragment = ConsultarCodigoDefectoPorGravedad.newInstance((Serializable) codigoDefecto);
         getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
 
     }
