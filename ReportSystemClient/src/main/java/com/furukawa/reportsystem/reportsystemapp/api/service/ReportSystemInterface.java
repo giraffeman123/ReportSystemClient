@@ -61,4 +61,7 @@ public interface ReportSystemInterface {
     @FormUrlEncoded
     @POST("servicio/api/codigoDefecto/eliminarCodigoDefecto")
     Call<String> deleteCodigoDefectoByCodigo(@Field("codigoDefecto") String codigoDefecto);
+
+
+
 }
