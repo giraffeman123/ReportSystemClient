@@ -17,8 +17,15 @@ import android.widget.Toast;
 import com.furukawa.reportsystem.reportsystemapp.api.model.CodigoDefecto;
 import com.furukawa.reportsystem.reportsystemapp.api.model.Lider;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.AgregarCodigoDefecto;
+<<<<<<< HEAD
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.BuscarCodigoDefecto;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.ConsultarCodigoDefectoPorArea;
+=======
+import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.BuscarCodigoDefectoPorAreaAndMaquina;
+import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.BuscarCodigoDefectoPorGravedad;
+import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.ConsultarCodigoDefectoPorAreaAndMaquina;
+import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.ConsultarCodigoDefectoPorGravedad;
+>>>>>>> aef899631c60eeffb0173cbb4bb13e4a2848545a
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.EliminarCodigoDefecto;
 import com.furukawa.reportsystem.reportsystemapp.ui.codigo_defecto.ModificarCodigoDefecto;
 import com.furukawa.reportsystem.reportsystemapp.ui.defecto_en_linea.AgregarDefectoEnLinea;
@@ -34,6 +41,9 @@ import com.furukawa.reportsystem.reportsystemapp.ui.lider.EliminarLider;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.BuscarLider;
 import com.furukawa.reportsystem.reportsystemapp.ui.lider.ModificarLider;
 
+import java.io.Serializable;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, AgregarLider.OnFragmentInteractionListener,
         ConsultarLider.OnFragmentInteractionListener, ConsultarAllLideres.OnFragmentInteractionListener,
@@ -43,11 +53,19 @@ public class MainActivity extends AppCompatActivity
         AgregarDefectoEnLinea.OnFragmentInteractionListener,
         ConsultarDefectoEnLineaPorFecha.OnFragmentInteractionListener, ConsultarDefectoEnLineaPorLider.OnFragmentInteractionListener,
         ConsultarDefectoEnLineaPorLinea.OnFragmentInteractionListener, ConsultarDefectoEnLineaPorTurno.OnFragmentInteractionListener,
+<<<<<<< HEAD
         AgregarCodigoDefecto.OnFragmentInteractionListener,
         BuscarCodigoDefecto.OnFragmentInteractionListener,
         BuscarCodigoDefecto.OnSendingCodigoDefectoListener,
         ConsultarCodigoDefectoPorArea.OnFragmentInteractionListener,
         EliminarCodigoDefecto.OnFragmentInteractionListener, ModificarCodigoDefecto.OnFragmentInteractionListener{
+=======
+        AgregarCodigoDefecto.OnFragmentInteractionListener, ConsultarCodigoDefectoPorAreaAndMaquina.OnFragmentInteractionListener,
+        EliminarCodigoDefecto.OnFragmentInteractionListener, ModificarCodigoDefecto.OnFragmentInteractionListener,
+        BuscarCodigoDefectoPorAreaAndMaquina.OnFragmentInteractionListener, BuscarCodigoDefectoPorAreaAndMaquina.OnSendingCodigoDefectoListener,
+        ConsultarCodigoDefectoPorGravedad.OnFragmentInteractionListener,BuscarCodigoDefectoPorGravedad.OnFragmentInteractionListener
+        ,BuscarCodigoDefectoPorGravedad.OnSendingCodigoDefectoListenerGravedad{
+>>>>>>> aef899631c60eeffb0173cbb4bb13e4a2848545a
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,7 +166,10 @@ public class MainActivity extends AppCompatActivity
             AgregarCodigoDefecto fragment = new AgregarCodigoDefecto();
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_consultar_codigo_defecto_por_area) {
-            ConsultarCodigoDefectoPorArea fragment = new ConsultarCodigoDefectoPorArea();
+            BuscarCodigoDefectoPorAreaAndMaquina fragment = new BuscarCodigoDefectoPorAreaAndMaquina();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
+        } else if (id == R.id.nav_consultar_codigo_defecto_por_gravedad) {
+            BuscarCodigoDefectoPorGravedad fragment = new BuscarCodigoDefectoPorGravedad();
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_modificar_codigo_defecto) {
             BuscarCodigoDefecto fragment = new BuscarCodigoDefecto();
@@ -210,6 +231,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+<<<<<<< HEAD
     public void OnInputBuscarCodigoDefectoSent(CodigoDefecto codigoDefecto) {
       //  Toast.makeText(getApplicationContext(),codigoDefecto.getCodigoDefecto()+"|"+codigoDefecto.getArea()
        //         +"|"+codigoDefecto.getMaquina()+"|"+codigoDefecto.getGravedad()
@@ -218,5 +240,18 @@ public class MainActivity extends AppCompatActivity
         ModificarCodigoDefecto fragment = ModificarCodigoDefecto.newInstance(codigoDefecto.getCodigoDefecto(),codigoDefecto.getArea()
                 ,codigoDefecto.getMaquina(),codigoDefecto.getGravedad(),codigoDefecto.getDescripcion());
         getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
+=======
+    public void OnInputBuscarCodigoDefectoSent(List<CodigoDefecto> codigoDefecto) {
+        ConsultarCodigoDefectoPorAreaAndMaquina fragment = ConsultarCodigoDefectoPorAreaAndMaquina.newInstance((Serializable) codigoDefecto);
+        getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
+
+    }
+
+    @Override
+    public void OnInputBuscarCodigoDefectoGravedadSent(List<CodigoDefecto> codigoDefecto) {
+        ConsultarCodigoDefectoPorGravedad fragment = ConsultarCodigoDefectoPorGravedad.newInstance((Serializable) codigoDefecto);
+        getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
+
+>>>>>>> aef899631c60eeffb0173cbb4bb13e4a2848545a
     }
 }

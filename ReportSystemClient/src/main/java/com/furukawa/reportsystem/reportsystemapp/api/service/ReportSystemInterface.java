@@ -48,6 +48,15 @@ public interface ReportSystemInterface {
                              @Field("puesto") String puesto,
                              @Field("turno") String turno);
 
+<<<<<<< HEAD
+=======
+    @FormUrlEncoded
+    @POST("servicio/api/codigoDefecto/nuevoCodigoDefecto")
+    Call<String> saveCodigoDefecto(@Field("area") String area,
+                           @Field("maquina") String maquina,
+                           @Field("gravedad") String gravedad,
+                           @Field("descripcion") String descripcion);
+>>>>>>> aef899631c60eeffb0173cbb4bb13e4a2848545a
 
     @GET("servicio/api/codigoDefecto/codigoDefectoByCodigoDefecto/{codigo}")
     Call<CodigoDefecto> getCodigoDefectoByCodigo(@Path("codigoDefecto") String codigo);
@@ -55,13 +64,31 @@ public interface ReportSystemInterface {
     @FormUrlEncoded
     @POST("servicio/api/codigoDefecto/modificarCodigoDefecto")
     Call<String> uptadeCodigoDefecto(@Field("codigoDefecto") String codigoDefecto,
+<<<<<<< HEAD
                            @Field("gravedad") String gravedad,
                            @Field("descripcion") String descripcion);
+=======
+                                     @Field("gravedad") String gravedad,
+                                     @Field("descripcion") String descripcion);
+>>>>>>> aef899631c60eeffb0173cbb4bb13e4a2848545a
 
     @FormUrlEncoded
     @POST("servicio/api/codigoDefecto/eliminarCodigoDefecto")
     Call<String> deleteCodigoDefectoByCodigo(@Field("codigoDefecto") String codigoDefecto);
 
 
+<<<<<<< HEAD
+=======
+    @FormUrlEncoded
+    @POST("servicio/api/codigoDefecto/allCodigoDefectoByAreaAndMaquina")
+    Call<List<CodigoDefecto>> allCodigoDefectoByAreaAndMaquina(@Field("area") String area,
+                             @Field("maquina") String maquina);
+
+    @FormUrlEncoded
+    @POST("servicio/api/codigoDefecto/allCodigoDefectoByGravedad")
+    Call<List<CodigoDefecto>> allCodigoDefectoByGravedad(@Field("gravedad") String gravedad);
+
+
+>>>>>>> aef899631c60eeffb0173cbb4bb13e4a2848545a
 
 }

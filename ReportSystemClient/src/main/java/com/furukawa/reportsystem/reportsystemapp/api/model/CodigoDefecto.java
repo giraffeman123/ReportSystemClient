@@ -20,6 +20,12 @@ public class CodigoDefecto {
     @SerializedName("codigoDefecto")
     @Expose
     private String codigoDefecto;
+<<<<<<< HEAD
+=======
+
+    private String maquina;
+
+>>>>>>> aef899631c60eeffb0173cbb4bb13e4a2848545a
     private byte[] fotografia;
 
     public CodigoDefecto() {
@@ -29,12 +35,17 @@ public class CodigoDefecto {
         this.codigoDefecto = codigoDefecto;
     }
 
+<<<<<<< HEAD
     public CodigoDefecto(String codigoDefecto, String area, String maquina, String gravedad, String descripcion) {
+=======
+    public CodigoDefecto(String area, String gravedad, String descripcion, String codigoDefecto,  String maquina) {
+>>>>>>> aef899631c60eeffb0173cbb4bb13e4a2848545a
         this.codigoDefecto = codigoDefecto;
         this.area = area;
         this.maquina = maquina;
         this.gravedad = gravedad;
         this.descripcion = descripcion;
+        this.maquina = maquina;
     }
 
     public String getArea() {
@@ -85,4 +96,22 @@ public class CodigoDefecto {
         this.fotografia = fotografia;
     }
 
+<<<<<<< HEAD
+=======
+    public Defecto getDefecto() {
+        return defecto;
+    }
+
+    public void setDefecto(Defecto defecto) {
+        this.defecto = defecto;
+    }
+
+    public String getMaquina() {
+        return maquina;
+    }
+
+    public void setMaquina(String maquina) {
+        this.maquina = maquina;
+    }
+>>>>>>> aef899631c60eeffb0173cbb4bb13e4a2848545a
 }
