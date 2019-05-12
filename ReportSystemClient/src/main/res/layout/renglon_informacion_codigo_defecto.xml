@@ -58,9 +58,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="243dp"
-        android:layout_height="match_parent"
+        android:layout_width="172dp"
+        android:layout_height="145dp"
         android:layout_margin="10dp"
         android:layout_weight="1"
-        app:srcCompat="@drawable/ic_menu_manage" />
+        app:srcCompat="@drawable/icon_defecto" />
 </LinearLayout>

@@ -29,8 +29,8 @@ public class AdapterCodigoDefecto extends RecyclerView.Adapter<AdapterCodigoDefe
 
     @Override
     public void onBindViewHolder(@NonNull AdapterCodigoDefecto.MyViewHolder holder, int position) {
-        holder.txtViewCodigoDefecto.setText(mDataset.get(position).getDefecto().getCodigoDefecto());
-        //holder.txtViewCodigoDefecto.setText(mDataset.get(position).getCodigoDefecto());
+        //holder.txtViewCodigoDefecto.setText(mDataset.get(position).getDefecto().getCodigoDefecto());
+        holder.txtViewCodigoDefecto.setText(mDataset.get(position).getCodigoDefecto());
         holder.txtViewArea.setText(mDataset.get(position).getArea());
         holder.txtViewMaquina.setText(mDataset.get(position).getMaquina());
         holder.txtViewGravedad.setText(mDataset.get(position).getGravedad());
@@ -77,11 +77,11 @@ public class AdapterCodigoDefecto extends RecyclerView.Adapter<AdapterCodigoDefe
         }
         public MyViewHolder(View v) {
             super(v);
-            /*txtViewArea = v.findViewById(R.id.t);
-            txtViewMaquina = v.findViewById(R.id.textViewCodigoEmpleado);
-            txtViewGravedad = v.findViewById(R.id.textViewArea);
-            txtViewDescripcion = v.findViewById(R.id.textViewLinea);
-*/
+            txtViewCodigoDefecto = v.findViewById(R.id.txtViewCodigoDefecto);
+            txtViewArea = v.findViewById(R.id.txtViewArea);
+            txtViewMaquina = v.findViewById(R.id.txtViewMaquina);
+            txtViewGravedad = v.findViewById(R.id.txtViewGravedad);
+            txtViewDescripcion = v.findViewById(R.id.txtViewDescripcion);
         }
     }
 
