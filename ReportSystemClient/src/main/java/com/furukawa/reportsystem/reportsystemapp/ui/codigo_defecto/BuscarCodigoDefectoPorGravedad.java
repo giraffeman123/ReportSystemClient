@@ -25,13 +25,13 @@ public class BuscarCodigoDefectoPorGravedad extends android.support.v4.app.Fragm
 
     private List<CodigoDefecto> codigoDefecto;
     private ReportSystemInterface api;
-    private BuscarCodigoDefectoPorGravedad.OnSendingCodigoDefectoListenerGravedad listener;
+    private OnSendingCodigoDefectoListener listener;
 
     public BuscarCodigoDefectoPorGravedad() {
         // Required empty public constructor
     }
 
-    public interface OnSendingCodigoDefectoListenerGravedad{
+    public interface OnSendingCodigoDefectoListener{
         void OnInputBuscarCodigoDefectoGravedadSent(List<CodigoDefecto> codigoDefecto);
     }
 
@@ -87,7 +87,7 @@ public class BuscarCodigoDefectoPorGravedad extends android.support.v4.app.Fragm
                     }
                     if(response.body() != null){
                         codigoDefecto = response.body();
-                        //            listener.OnInputBuscarCodigoDefectoSent(codigoDefecto);
+                        listener.OnInputBuscarCodigoDefectoGravedadSent(codigoDefecto);
                         // Toast.makeText(getActivity(),"Código Defecto encontrado.",Toast.LENGTH_LONG).show();
                     }else{
                         Toast.makeText(getActivity(),"Código Defecto no encontrado.",Toast.LENGTH_LONG).show();
@@ -106,8 +106,8 @@ public class BuscarCodigoDefectoPorGravedad extends android.support.v4.app.Fragm
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof BuscarCodigoDefectoPorGravedad.OnSendingCodigoDefectoListenerGravedad) {
-            listener = (BuscarCodigoDefectoPorGravedad.OnSendingCodigoDefectoListenerGravedad) context;
+        if (context instanceof OnSendingCodigoDefectoListener) {
+            listener = (OnSendingCodigoDefectoListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnSendingCodigoDefectoListener");

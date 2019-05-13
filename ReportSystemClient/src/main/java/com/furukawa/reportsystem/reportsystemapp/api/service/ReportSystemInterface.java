@@ -59,6 +59,14 @@ public interface ReportSystemInterface {
     @GET("servicio/api/codigoDefecto/codigoDefectoByCodigoDefecto/{codigo}")
     Call<CodigoDefecto> getCodigoDefectoByCodigo(@Path("codigoDefecto") String codigo);
 
+    @GET("servicio/api/codigoDefecto/allcodigoDefectoByGravedad/{gravedad}")
+    Call<List<CodigoDefecto>> allCodigoDefectoByGravedad(@Path("gravedad") String gravedad);
+
+    @FormUrlEncoded
+    @POST("servicio/api/codigoDefecto/allCodigoDefectoByAreaAndMaquina")
+    Call<List<CodigoDefecto>> allCodigoDefectoByAreaAndMaquina(@Field("area") String area,
+                                                               @Field("maquina") String maquina);
+
     @FormUrlEncoded
     @POST("servicio/api/codigoDefecto/modificarCodigoDefecto")
     Call<String> uptadeCodigoDefecto(@Field("codigoDefecto") String codigoDefecto,
@@ -69,12 +77,4 @@ public interface ReportSystemInterface {
     @POST("servicio/api/codigoDefecto/eliminarCodigoDefecto")
     Call<String> deleteCodigoDefectoByCodigo(@Field("codigoDefecto") String codigoDefecto);
 
-    @FormUrlEncoded
-    @POST("servicio/api/codigoDefecto/allCodigoDefectoByAreaAndMaquina")
-    Call<List<CodigoDefecto>> allCodigoDefectoByAreaAndMaquina(@Field("area") String area,
-                             @Field("maquina") String maquina);
-
-    @FormUrlEncoded
-    @POST("servicio/api/codigoDefecto/allCodigoDefectoByGravedad")
-    Call<List<CodigoDefecto>> allCodigoDefectoByGravedad(@Field("gravedad") String gravedad);
 }
