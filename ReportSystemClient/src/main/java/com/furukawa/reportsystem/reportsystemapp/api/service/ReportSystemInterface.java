@@ -48,6 +48,7 @@ public interface ReportSystemInterface {
                              @Field("puesto") String puesto,
                              @Field("turno") String turno);
 
+
     @FormUrlEncoded
     @POST("servicio/api/codigoDefecto/nuevoCodigoDefecto")
     Call<String> saveCodigoDefecto(@Field("area") String area,
@@ -68,7 +69,6 @@ public interface ReportSystemInterface {
     @POST("servicio/api/codigoDefecto/eliminarCodigoDefecto")
     Call<String> deleteCodigoDefectoByCodigo(@Field("codigoDefecto") String codigoDefecto);
 
-
     @FormUrlEncoded
     @POST("servicio/api/codigoDefecto/allCodigoDefectoByAreaAndMaquina")
     Call<List<CodigoDefecto>> allCodigoDefectoByAreaAndMaquina(@Field("area") String area,
@@ -77,7 +77,4 @@ public interface ReportSystemInterface {
     @FormUrlEncoded
     @POST("servicio/api/codigoDefecto/allCodigoDefectoByGravedad")
     Call<List<CodigoDefecto>> allCodigoDefectoByGravedad(@Field("gravedad") String gravedad);
-
-
-
 }

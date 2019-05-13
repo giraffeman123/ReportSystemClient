@@ -114,6 +114,8 @@ public class ModificarLider extends Fragment {
 
         final Button btAceptar = v.findViewById(R.id.btAceptar);
 
+
+        // se añaden los valores de lider a los todos los componentes View
         edtxtCodigo.setText(lider.getCodigoEmpleado());
         edtxtNombre.setText(lider.getEmpleado().getNombre());
 
@@ -133,7 +135,7 @@ public class ModificarLider extends Fragment {
                         || spLinea.getSelectedItem().toString().equals("Seleccione una")
                         || spArea.getSelectedItem().toString().equals("Seleccione una") ||
                         spTurno.getSelectedItem().toString().equals("Seleccione una")) {
-                    Toast.makeText(getActivity(), "Hay un campo vacío. Antes de presionar agregar llene todos los campos."
+                    Toast.makeText(getActivity(), "Hay un campo vacío. Antes de presionar modificar llene todos los campos."
                             , Toast.LENGTH_LONG).show();
                 }else {
                     modificarLider(edtxtCodigo.getText().toString(), spArea.getSelectedItem().toString(),
