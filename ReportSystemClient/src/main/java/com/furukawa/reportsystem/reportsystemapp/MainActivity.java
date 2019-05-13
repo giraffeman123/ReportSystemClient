@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
         BuscarCodigoDefectoPorAreaAndMaquina.OnFragmentInteractionListener,
         BuscarCodigoDefectoPorAreaAndMaquina.OnSendingCodigoDefectoListener,
         BuscarCodigoDefectoPorGravedad.OnFragmentInteractionListener,
-        BuscarCodigoDefectoPorGravedad.OnSendingCodigoDefectoListenerGravedad,
+        BuscarCodigoDefectoPorGravedad.OnSendingCodigoDefectoListener,
         ConsultarCodigoDefectoPorAreaAndMaquina.OnFragmentInteractionListener,
         ConsultarCodigoDefectoPorGravedad.OnFragmentInteractionListener,
         EliminarCodigoDefecto.OnFragmentInteractionListener, ModificarCodigoDefecto.OnFragmentInteractionListener{
