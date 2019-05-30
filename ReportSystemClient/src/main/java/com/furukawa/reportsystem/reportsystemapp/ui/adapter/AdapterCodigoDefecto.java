@@ -1,5 +1,6 @@
 package com.furukawa.reportsystem.reportsystemapp.ui.adapter;
 
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -33,16 +34,25 @@ public class AdapterCodigoDefecto extends RecyclerView.Adapter<AdapterCodigoDefe
         holder.txtViewCodigoDefecto.setText(mDataset.get(position).getCodigoDefecto());
         holder.txtViewArea.setText(mDataset.get(position).getArea());
         holder.txtViewMaquina.setText(mDataset.get(position).getMaquina());
+        String g = mDataset.get(position).getGravedad().toString();
+        System.out.println("Gravedad:  " + g + " hola");
+        if(g == "Bajo"){
+            holder.txtViewGravedad.setBackgroundColor(Color.BLUE);
+        }if(g == "Medio"){
+            holder.txtViewGravedad.setBackgroundColor(Color.YELLOW);
+        }if(g == "Alto"){
+            holder.txtViewGravedad.setBackgroundColor(Color.RED);
+        }
         holder.txtViewGravedad.setText(mDataset.get(position).getGravedad());
         holder.txtViewDescripcion.setText(mDataset.get(position).getDescripcion());
         //holder.imageView.setImageResource(mDataset.get(position).getImage());
+
     }
 
     @Override
     public int getItemCount() {
         return mDataset.size();
     }
-
 
     public AdapterCodigoDefecto(List<CodigoDefecto> mDataset) {
         this.mDataset=mDataset;
@@ -74,6 +84,7 @@ public class AdapterCodigoDefecto extends RecyclerView.Adapter<AdapterCodigoDefe
             txtViewMaquina = w;
             txtViewGravedad = x;
             txtViewDescripcion = y;
+
         }
         public MyViewHolder(View v) {
             super(v);
@@ -82,6 +93,15 @@ public class AdapterCodigoDefecto extends RecyclerView.Adapter<AdapterCodigoDefe
             txtViewMaquina = v.findViewById(R.id.txtViewMaquina);
             txtViewGravedad = v.findViewById(R.id.txtViewGravedad);
             txtViewDescripcion = v.findViewById(R.id.txtViewDescripcion);
+
+            System.out.println("Gravedad:  " + txtViewGravedad.getText().toString() + " hola 2222");
+            /*if(txtViewGravedad.getText() == "Bajo"){
+                txtViewGravedad.setBackgroundColor(Color.BLUE);
+            }if(txtViewGravedad.getText() == "Medio"){
+                txtViewGravedad.setBackgroundColor(Color.YELLOW);
+            }if(txtViewGravedad.getText() == "Alto"){
+                txtViewGravedad.setBackgroundColor(Color.RED);
+            }*/
         }
     }
 

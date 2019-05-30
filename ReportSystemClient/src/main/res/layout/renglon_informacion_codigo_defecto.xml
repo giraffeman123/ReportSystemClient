@@ -44,6 +44,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/roboto_slab_bold"
             android:text="Gravedad"
+            android:textColor="@color/blanco"
             android:textSize="20sp" />
 
         <TextView

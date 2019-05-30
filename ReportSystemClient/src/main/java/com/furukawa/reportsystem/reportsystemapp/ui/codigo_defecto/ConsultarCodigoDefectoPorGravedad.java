@@ -77,10 +77,7 @@ public class ConsultarCodigoDefectoPorGravedad extends android.support.v4.app.Fr
 
         mAdapter = new AdapterCodigoDefecto(lista_codigo_defecto);
         recyclerViewCodigoDefectoGravedad.setAdapter(mAdapter);
-        // lideresList.setAdapter(new AdapterLider(getApplicationContext(), repos));
 
-        //Toast.makeText(getActivity(),"Code: "+response.code(),Toast.LENGTH_LONG).show();
-        //return inflater.inflate(R.layout.fragment_consultar_codigo_defecto_por_area, container, false);
         return v;
     }
 

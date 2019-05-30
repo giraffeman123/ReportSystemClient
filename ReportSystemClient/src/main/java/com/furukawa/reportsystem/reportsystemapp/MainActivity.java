@@ -157,18 +157,23 @@ public class MainActivity extends AppCompatActivity
         /*** MANTENIMIENTO DE CODIGO DE DEFECTO ***/
         else if (id == R.id.nav_agregar_codigo_defecto) {
             AgregarCodigoDefecto fragment = new AgregarCodigoDefecto();
+            i.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_consultar_codigo_defecto_por_area) {
             BuscarCodigoDefectoPorAreaAndMaquina fragment = new BuscarCodigoDefectoPorAreaAndMaquina();
+            i.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_consultar_codigo_defecto_por_gravedad) {
             BuscarCodigoDefectoPorGravedad fragment = new BuscarCodigoDefectoPorGravedad();
+            i.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_modificar_codigo_defecto) {
+            i.setVisibility(View.GONE);
             BuscarCodigoDefecto fragment = new BuscarCodigoDefecto();
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         } else if (id == R.id.nav_eliminar_codigo_defecto) {
             EliminarCodigoDefecto fragment = new EliminarCodigoDefecto();
+            i.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         }
         /*** MANTENIMIENTO DE CODIGO DE DEFECTO ***/
