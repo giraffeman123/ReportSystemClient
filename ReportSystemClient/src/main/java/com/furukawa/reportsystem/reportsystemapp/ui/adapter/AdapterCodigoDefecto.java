@@ -89,7 +89,7 @@ public class AdapterCodigoDefecto extends RecyclerView.Adapter<AdapterCodigoDefe
         public MyViewHolder(View v) {
             super(v);
             txtViewCodigoDefecto = v.findViewById(R.id.txtViewCodigoDefecto);
-            txtViewArea = v.findViewById(R.id.txtViewArea);
+            txtViewArea = v.findViewById(R.id.txtViewLinea);
             txtViewMaquina = v.findViewById(R.id.txtViewMaquina);
             txtViewGravedad = v.findViewById(R.id.txtViewGravedad);
             txtViewDescripcion = v.findViewById(R.id.txtViewDescripcion);

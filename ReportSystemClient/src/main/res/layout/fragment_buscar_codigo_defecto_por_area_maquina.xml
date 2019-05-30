@@ -59,7 +59,7 @@
 
         <TextView
             android:id="@+id/txtViewIngresarCodigo"
-            android:layout_width="569dp"
+            android:layout_width="535dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"

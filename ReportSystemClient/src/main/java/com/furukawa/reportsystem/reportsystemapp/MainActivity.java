@@ -67,18 +67,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        /*
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        */
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -154,6 +142,7 @@ public class MainActivity extends AppCompatActivity
         }
         /*** MANTENIMIENTO DE LIDERES ***/
 
+
         /*** MANTENIMIENTO DE CODIGO DE DEFECTO ***/
         else if (id == R.id.nav_agregar_codigo_defecto) {
             AgregarCodigoDefecto fragment = new AgregarCodigoDefecto();
@@ -178,30 +167,39 @@ public class MainActivity extends AppCompatActivity
         }
         /*** MANTENIMIENTO DE CODIGO DE DEFECTO ***/
 
+
+
         /*** MANTENIMIENTO DEFECTO EN LINEA ***/
         else if (id == R.id.nav_agregar_defecto_en_linea) {
             AgregarDefectoEnLinea fragment = new AgregarDefectoEnLinea();
+            i.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         }else if (id == R.id.nav_consultar_defecto_en_linea_por_turno) {
             ConsultarDefectoEnLineaPorTurno fragment = new ConsultarDefectoEnLineaPorTurno();
+            i.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         }else if (id == R.id.nav_consultar_defecto_en_linea_por_fecha) {
             ConsultarDefectoEnLineaPorFecha fragment = new ConsultarDefectoEnLineaPorFecha();
+            i.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         }else if (id == R.id.nav_consultar_defecto_en_linea_por_lider) {
             ConsultarDefectoEnLineaPorLider fragment = new ConsultarDefectoEnLineaPorLider();
+            i.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         }else if (id == R.id.nav_consultar_defecto_en_linea_por_linea) {
             ConsultarDefectoEnLineaPorLinea fragment = new ConsultarDefectoEnLineaPorLinea();
+            i.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         }
         /*** MANTENIMIENTO DEFECTO EN LINEA ***/
+
 
         /*** CONFIGURACION WI-FI ***/
         else if (id == R.id.nav_wifi_conf) {
             //getSupportFragmentManager().beginTransaction().replace(R.id.Contenedor,fragment).commit();
         }
         /*** CONFIGURACION WI-FI ***/
+
 
         /*** CERRAR SESION ***/
         else if (id == R.id.nav_cerrar_sesion) {

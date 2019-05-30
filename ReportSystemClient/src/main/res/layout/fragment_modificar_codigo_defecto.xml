@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/txtViewArea"
+            android:id="@+id/txtViewLinea"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/edtxtArea"
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/edtxtMaquina"
-            android:layout_alignStart="@+id/txtViewArea"
+            android:layout_alignStart="@+id/txtViewLinea"
             android:text="Máquina"
             android:textSize="18dp"
             tools:layout_editor_absoluteX="121dp"
@@ -40,7 +40,7 @@
             android:id="@+id/txtViewGravedad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/txtViewArea"
+            android:layout_alignStart="@+id/txtViewLinea"
             android:layout_centerVertical="true"
             android:text="Gravedad"
             android:textSize="18dp"
@@ -52,7 +52,7 @@
             android:id="@+id/txtViewDescripcion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/txtViewArea"
+            android:layout_alignStart="@+id/txtViewLinea"
             android:layout_alignTop="@+id/edtxtDescripcion"
             android:text="Descripción"
             android:textSize="18dp"
@@ -164,7 +164,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/txtViewIngreseFotoDefecto"
-            android:layout_alignStart="@+id/txtViewArea"
+            android:layout_alignStart="@+id/txtViewLinea"
             android:text="Código Defecto"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="18dp" />
