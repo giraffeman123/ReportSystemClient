@@ -25,7 +25,7 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewConsultaCodigoDefectoGravedad"
-        android:layout_width="604dp"
+        android:layout_width="wrap_content"
         android:layout_height="273dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"

@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:label="Consulta General">
 
 
     <TextView
@@ -27,7 +28,7 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewLideresConsultaGeneral"
-        android:layout_width="789dp"
+        android:layout_width="wrap_content"
         android:layout_height="332dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"

@@ -32,6 +32,7 @@ public class AdapterLider extends RecyclerView.Adapter<AdapterLider.MyViewHolder
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.textViewNombre.setText(mDataset.get(position).getEmpleado().getNombre());
         holder.textViewArea.setText(mDataset.get(position).getArea());
+        holder.textViewTurno.setText(mDataset.get(position).getEmpleado().getTurno());
         String linea = Integer.toString(mDataset.get(position).getLinea());
         holder.textViewLinea.setText(linea);
         holder.textViewCodigoEmpleado.setText(mDataset.get(position).getCodigoEmpleado());
@@ -62,16 +63,18 @@ public class AdapterLider extends RecyclerView.Adapter<AdapterLider.MyViewHolder
 
         public TextView textViewNombre;
         public TextView textViewCodigoEmpleado;
+        public TextView textViewTurno;
         public TextView textViewArea;
         public TextView textViewLinea;
 
 
-        public MyViewHolder(TextView v, TextView w, TextView x, TextView y) {
+        public MyViewHolder(TextView v, TextView w, TextView x, TextView y, TextView t) {
             super(v);
             textViewNombre = v;
             textViewCodigoEmpleado = w;
             textViewArea = x;
             textViewLinea = y;
+            textViewTurno = t;
         }
         public MyViewHolder(View v) {
             super(v);
@@ -79,6 +82,7 @@ public class AdapterLider extends RecyclerView.Adapter<AdapterLider.MyViewHolder
             textViewCodigoEmpleado = v.findViewById(R.id.textViewCodigoEmpleado);
             textViewArea = v.findViewById(R.id.textViewArea);
             textViewLinea = v.findViewById(R.id.textViewLinea);
+            textViewTurno = v.findViewById(R.id.textViewTurno);
 
         }
     }

@@ -31,18 +31,20 @@ public class AdapterCodigoDefecto extends RecyclerView.Adapter<AdapterCodigoDefe
     @Override
     public void onBindViewHolder(@NonNull AdapterCodigoDefecto.MyViewHolder holder, int position) {
         //holder.txtViewCodigoDefecto.setText(mDataset.get(position).getDefecto().getCodigoDefecto());
+
         holder.txtViewCodigoDefecto.setText(mDataset.get(position).getCodigoDefecto());
         holder.txtViewArea.setText(mDataset.get(position).getArea());
         holder.txtViewMaquina.setText(mDataset.get(position).getMaquina());
         String g = mDataset.get(position).getGravedad().toString();
-        System.out.println("Gravedad:  " + g + " hola");
-        if(g == "Bajo"){
+
+        if(g.equalsIgnoreCase("Bajo")){
             holder.txtViewGravedad.setBackgroundColor(Color.BLUE);
-        }if(g == "Medio"){
+        }if(g.equalsIgnoreCase("Medio") ){
             holder.txtViewGravedad.setBackgroundColor(Color.YELLOW);
-        }if(g == "Alto"){
+        }if(g.equalsIgnoreCase("Alto")){
             holder.txtViewGravedad.setBackgroundColor(Color.RED);
         }
+
         holder.txtViewGravedad.setText(mDataset.get(position).getGravedad());
         holder.txtViewDescripcion.setText(mDataset.get(position).getDescripcion());
         //holder.imageView.setImageResource(mDataset.get(position).getImage());
@@ -93,8 +95,8 @@ public class AdapterCodigoDefecto extends RecyclerView.Adapter<AdapterCodigoDefe
             txtViewMaquina = v.findViewById(R.id.txtViewMaquina);
             txtViewGravedad = v.findViewById(R.id.txtViewGravedad);
             txtViewDescripcion = v.findViewById(R.id.txtViewDescripcion);
+            System.out.println("Gravedad:  " + txtViewGravedad.getText().toString() + " hola myViewHolder");
 
-            System.out.println("Gravedad:  " + txtViewGravedad.getText().toString() + " hola 2222");
             /*if(txtViewGravedad.getText() == "Bajo"){
                 txtViewGravedad.setBackgroundColor(Color.BLUE);
             }if(txtViewGravedad.getText() == "Medio"){
